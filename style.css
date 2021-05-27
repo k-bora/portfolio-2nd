@@ -789,7 +789,9 @@ sub contact
 }
 .form_wrap textarea{
     height: 100px;
-    /* border: solid 2px #000; */
+    border: solid 2px #000;
+    background: #fafafa;
+    padding: 12px;
 }
 .form_wrap input.submit{
     font-size: 20px;
