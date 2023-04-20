@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>청주여기_관광택시 메시지화면</title>
+  <link rel="stylesheet" href="../vuejs/src/assets/css/reset.css">
+  <link rel="stylesheet" href="../vuejs/src/assets/css/content.css">
+  <style>
+    body {background-color: #000;}
+    #wrap {max-width: 500px; margin: 0 auto;}
+    #header,
+    .chatbotInputBox,
+    .chatbotInfo,
+    .pgBottomBox--fixed {max-width: 500px;}
+  </style>
+</head>
+
+<body>
+  <div id="wrap" class="chatbotPg">
+    <header id="header" class="">
+      <button type="button" class="btnBack btnBack--bl"><span class="blind">뒤로가기</span></button>
+      <h1 class="pgTitle">메시지</h1>
+      <select name="" id="" class="langBtn">
+        <option>한국어</option>
+        <option>영어</option>
+        <option>중국어</option>
+        <option>일본어</option>
+      </select>
+    </header>
+    <div id="container">
+      <section class="content">
+        <div class="chatbotInfo mapInfo">
+          <ul class="checkList">
+            <li class="checkList__item noti">
+              언어설정에서 설정한 언어로 입력시에만 번역이 가능합니다.
+              그 외의 다른 언어 입력시 번역이 불가능합니다.
+            </li>
+            <li class="checkList__item">
+              <div class="mapInfoTop">
+                <div class="mapInfoTopInner">
+                  <div class="profileBox">
+                    <div class="textBox">
+                      <strong><span>석진국</span>기사님</strong>
+                      <span class="txt">
+                        <span>KIA K5 (중형)</span>
+                        <span>123호4567</span>
+                      </span>
+                    </div>
+                    <div class="imgBoxWrap">
+                      <div class="boxPf"></div>
+                      <div class="boxPf boxPf--taxi"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!-- 메시지 내용 시작 -->
+        <div class="">
+          <ul class="chatbot">
+            <li class="chatbot__date">
+              <span class="date__text">2022년 10월 10일 월요일</span>
+            </li>
+            <!-- 메시지가 짧은경우 -->
+            <li class="myMessage">
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 00:00</span>
+                <p class="myMessage__text">
+                  Why is it so late?
+                </p>
+              </div>
+            </li>
+            <!-- 메시지가 긴경우 -->
+            <li class="myMessage">
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 3:35</span>
+                <p class="myMessage__text">
+                  Why is it so late? Why is it so late? Why is it so late? Why is it so late?
+                  Why is it so late? Why is it so late? Why is it so late? Why is it so late?
+                </p>
+              </div>
+            </li>
+            <!-- 메시지가 같은 시간에 보내진 경우 -->
+            <li class="myMessage">
+              <div class="myMessage__data">
+                <p class="myMessage__text">
+                  Why is it so late?
+                </p>
+              </div>
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 3:35</span>
+                <p class="myMessage__text">
+                  Why is it so late?
+                </p>
+              </div>
+            </li>
+
+            <li class="chatbot__date">
+              <span class="date__text">2022년 10월 10일 월요일</span>
+            </li>
+
+            <!-- 메시지 답변일 경우 클래스명 myMessage--answer 추가 -->
+            <li class="myMessage myMessage--answer">
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 3:35</span>
+                <p class="myMessage__text">
+                  미안해요. 차가 막혀서 늦어요.
+                  <span class="myMessage__text--lang">
+                    Sorry. I'm late because of traffic.
+                  </span>
+                </p>
+              </div>
+            </li>
+            <!-- 메시지가 긴경우 답변 -->
+            <li class="myMessage myMessage--answer">
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 3:35</span>
+                <p class="myMessage__text">
+                  미안해요. 차가 막혀서 늦어요. 미안해요. 차가 막혀서 늦어요. 미안해요. 차가 막혀서 늦어요.
+                  <span class="myMessage__text--lang">
+                    Sorry. I'm late because of traffic. Sorry. I'm late because of traffic. Sorry. I'm late because of
+                    traffic.
+                  </span>
+                </p>
+              </div>
+            </li>
+            <!-- 메시지가 같은 시간에 보내진 경우 답변 -->
+            <li class="myMessage myMessage--answer">
+              <div class="myMessage__data">
+                <p class="myMessage__text">
+                  미안해요. 차가 막혀서 늦어요.
+                  <span class="myMessage__text--lang">
+                    Sorry. I'm late because of traffic.
+                  </span>
+                </p>
+              </div>
+              <div class="myMessage__data">
+                <span class="myMessage__time">오후 3:35</span>
+                <p class="myMessage__text">
+                  미안해요. 차가 막혀서 늦어요.
+                  <span class="myMessage__text--lang">
+                    Sorry. I'm late because of traffic.
+                  </span>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="chatbotInputBox">
+          <textarea class="chatbotInput" placeholder=""
+            onkeyup="this.style.height='20px'; this.style.height = this.scrollHeight + 'px';"
+            style="height: 35px;"></textarea>
+          <input type="submit" class="chatbotSubmit" onclick="cssChange()" value="전송">
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    function cssChange() {
+        var chatbotInput = document.getElementsByClassName("chatbotInput")[0];
+        chatbotInput.style.height = "36px";     
+    }
+  </script>
+</body>
+
+</html>

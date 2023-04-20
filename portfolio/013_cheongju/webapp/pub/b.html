@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <title>청주여기_관광택시 시티투어 내용보기 상세페이지 - 시티투어 코스</title>
+  <link rel="stylesheet" href="../vuejs/src/assets/css/reset.css">
+  <link rel="stylesheet" href="../vuejs/src/assets/css/content.css">
+  <style>
+    body {background-color: #000;}
+    #wrap {max-width: 500px; margin: 0 auto;}
+    #header,
+    .pgBottomBox--fixed {max-width: 500px;}
+  </style>
+</head>
+
+<body>
+  <div id="wrap" class="cityTour botBtn">
+    <header id="header" class="">
+      <button type="button" class="btnBack btnBack--bl"><span class="blind">뒤로가기</span></button>
+      <h1 class="pgTitle">시티투어</h1>
+      <button type="button" class="btnHome"><span class="blind">홈화면으로 가기</span></button>
+    </header>
+    <div id="container">
+      <section class="content">
+        <div class="infoimgBox infoimgBox--tour">
+          <img src="https://www.cheongju.go.kr/DATA/staff/CT/t_20220423111201760.jpg" alt="">
+        </div>
+        <div class="inner ">
+          <div class="tourBetween">
+            <h1 class="tourBetween__title">청남대 투어</h1>
+            <span class="tourBetween__text">시티투어로 청주 한바퀴!</span>
+            <ul class="tagList">
+                <li class="tagList__item">유료</li>
+                <li class="tagList__item">선착순</li>
+                <li class="tagList__item">인생샷</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="content">
+        <ul class="cityTourTitle">
+            <!-- 해당 컨텐츠 일때 클래스명 active 추가 -->
+            <li class="cityTourTitle__item active">시티투어 코스</li>
+            <li class="cityTourTitle__item ">운영안내</li>
+            <li class="cityTourTitle__item ">찾아오시는 길</li>
+        </ul>
+        <div class="inner cityTabCont">
+          <!-- 해당 컨텐츠 일때 클래스명 active 추가 -->
+          <!-- 시티투어 코스 -->
+          <div class="cityTabCont__item active">
+              <div class="infoimgBox">
+                  <!-- <img> -->
+              </div>
+              
+              <strong class="fixdTtile">청남대 투어</strong>
+              <div class="mobileText">
+                <span class="area">KTX오송역(가경터미널, 청주체육관)</span>
+                <span class="area">고인쇄박물관</span>
+                <span class="area">문의문화재단지(점심)</span>
+                <span class="area">청남대</span>
+                <span class="area">(청주체육관, 가경터미널)KTX오송역</span>
+              </div>
+              <span class="fixdNoti">
+                ※ 일부 장소는 시기별로 개최되는 축제, 공연, 체험, 산업관광 등으로 대체 될 수 있습니다.                        
+              </span>
+              
+              <strong class="fixdTtile">출발 장소</strong>
+              <ol class="mobileText">
+                  <li class="mobileText__item">
+                    <span>오전</span> <span>10</span>:<span>00</span>
+                    <span class="mobileText__inner">오송역(KTX) 3번 출구 앞 청주시티투어 승강장</span>
+                  </li>
+                  <li class="mobileText__item">
+                    <span>오전</span> <span>10</span>:<span>20</span>
+                    <span class="mobileText__inner">가경동 시외버스터미널 시외버스 하차장 청주시티 투어 천정걸이 표지판 앞</span>
+                  <li class="mobileText__item">
+                    <span>오전</span> <span>10</span>:<span>45</span>
+                    <span class="mobileText__inner">청주체육관 보훈승강장 부근 청주시티투어 승강장</span>
+                  </li>
+              </ol>
+              
+              <strong class="fixdTtile">운영 방법</strong>
+                <div class="mobileText"><span>매주</span> <span class="date" data-text="요일">토, 일</span> <span>10:00</span> ~ <span>17:00</span></div>
+                <p class="mobileText">
+                  - 3회(1주, 3주, 5주)<br>
+                  : 원도심투어(토요일)  / 청남대투어 (일요일)<br>
+                  - 2회(2주, 4주) <br>
+                  : 힐링투어(토요일) / 인생샷투어 (일요일)
+                </p>
+          </div>
+          <!-- 운영안내 -->
+          <div class="cityTabCont__item ">
+            <strong class="fixdTtile">접수기간</strong>
+            <span class="mobileText"><span>2022.00.00</span> ~ <span>2022.00.00</span></span>
+            
+            <strong class="fixdTtile">이용요금</strong>
+            <span class="mobileText"><span>2000</span>원</span>
+            <span class="fixdText bl">(출발 전 해당 주 금요일 15:00까지 결제)</span>
+            <span class="fixdNoti">※ 일정 중 식사비, 체험료, 여행자보험, 기타비용은 본인부담</span>
+            <span class="fixdNoti">※ 입장료 : 청남대 3,000원, 운보의 집 3,000원 별도 본인부담 (현장결제)</span>
+            <hr class="hr">
+            
+            <strong class="fixdTtile">결제방법</strong>
+            <ul class="">
+              <li class="fixdText"> - 현장탑승가능</li>
+              <li class="fixdText"> - 통합 예약 이용 시 : 온라인 가상계좌 이체 및 카드결제</li>
+            </ul>
+            <span class="fixdNoti">※ 단, 현장은 카드결제만 가능. 사전예약자 우선 탑승 및 40명 초과시 현장 탑승 불과</span>
+            
+            <strong class="fixdTtile">환불규정</strong>
+            <p class="mobileText">- 해당주 금요일 17시까지 예약 취소 시 전액환불 (그외 불가)</p>
+            
+            <strong class="fixdTtile">이용안내</strong>
+            <ul class="mobileText">
+              <li class="mobileText__item mobileText__item--hyphen"><span>문화관광해설사 1명 시티투어버스 동승</span></li>
+              <li class="mobileText__item mobileText__item--hyphen">예약방법 : <span>온라인 예약, 전화 예약</span></li>
+              <li class="mobileText__item mobileText__item--hyphen">문의전화 : <span>070-8667-3756</span></li>
+              <li class="mobileText__item mobileText__item--hyphen">주소 : <span>충청북도 청주시 흥덕구 오송읍 오송가락로 123 KTX 오송역</span></li>
+              <li class="mobileText__item mobileText__item--hyphen">Email : <span>ailtour-1@daum.net</span></li>
+            </ul>
+          </div>
+          <!-- 찾아오시는 길 -->
+          <div class="cityTabCont__item ">
+            <div class="infoimgBox">
+              <!-- 지도영역 -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="pgBottomBox pgBottomBox--fixed inner">
+        <a href="" class="btnPull">시티투어 예약하러 가기</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
