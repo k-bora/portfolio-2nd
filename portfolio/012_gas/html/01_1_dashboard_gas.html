@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 온실가스 배출 현황 : 대시보드 - 온실가스 통합관리 시스템 </title>
+    <link rel="stylesheet" type="text/css" href="../res/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../res/css/new_2021.css" />
+    <link rel="stylesheet" type="text/css" href="../res/js/jquery-ui.css" />
+    <script type="text/javascript" src="../res/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../res/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../res/js/datepicker_kr.js"></script>
+    <script src="../res/js/highcharts.js"></script>
+    <style>
+        @media (max-width: 500px) {
+            body {position: fixed; overflow: hidden;}
+            #wrap::after {content: "모바일 지원을 하지 않습니다."; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #fff; z-index: 999999999;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="head">
+            <div class="head">
+                <!-- s: v3.0_20210806 수정 내용 -->
+                <div class="title"><a href="#none">온실가스 통합관리 시스템</a></div>
+                <!-- e: v3.0_20210806 수정 내용 -->
+                <div class="text">
+                    <a href="#" style="color:#313131;"><b>admin(테스트)님</b></a> |
+                    <a class="btn1" onclick="onLogout();"> 로그아웃 </a> |
+                    <a class="btn2" onclick="goFullView()"> 전체화면 </a>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <!-- s:menu --> <!-- s: v3.0_20210806 수정 내용 (페이지추가 및 이름변경) -->
+            <div class="menu">
+                <div class="btn">
+                    <a class="on menu1" href="#none">통합 대시보드</a>
+                    <a class="on depth2 menu1" href="#none">온실가스 배출 현황</a>
+                    <a class=" depth2 menu1" href="#none">RE100 이행 현황</a>
+                    <a class=" depth2 menu1" href="#none">그룹사 온실가스 배출 현황</a>
+
+                    <a class=" menu2" href="#none">현황</a>
+
+                    <a class=" menu3" href="#none">분석</a>
+
+                    <a class=" menu4" href="#none">RE100</a>
+
+                    <a class=" menu5" href="#none">배출량</a>
+
+                    <a class=" menu6" href="#none">등록관리</a>
+
+                    <a class=" menu7" href="#none">게시판</a>
+
+                    <a class=" menu8" href="#none">관리자 메뉴</a>
+                </div>
+                <div class="menu_bottom">
+                    <div class="unit_change">
+                        <a href="#none">온실가스 단위환산</a>
+                    </div>
+                    <div class="priceBox">
+                        <a href="#none" onclick="location.href='/cer/CERPrice';">
+                            <strong class="tit">오늘의 가격정보</strong>
+                            <span>온실가스 배출권 최근 단가<i id="dangaDate" style="display:block;padding-top:5px;">최근 데이터 : 2021/07/08 </i></span>
+                            <em id="dangaPrice">45,644</em><i>원</i>
+                            <span class="btn_link">바로가기</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- //e:menu --> <!-- s: v3.0_20210806 수정 내용 (페이지추가 및 이름변경) -->
+
+            <div class="main new_main new_dashboard" >
+                <div class="title">
+                    <h1 class="tit">온실가스 배출 현황</h1>
+                    <span class="btn">
+                        <select>
+                            <option value="">2021년</option>
+                            <option value="">2020년</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="new_dashboard_content">
+                    <div class="boxs_wrap">
+                        <div class="w35 v2">
+                            <div class="top_box">
+                                <div class="wrap_btn_toggle">
+                                    <button type="button" class="btn_toggle f_r on">확정</button>
+                                    <button type="button" class="btn_toggle f_l ">추정</button>
+                                </div>
+                                <div class="chart_wrap toggle on">
+                                    <h2 class="box_tit">확정배출량(전월기준)</h2>
+                                    <strong class="percent"><span class="num">50</span>%</strong>
+                                    <div class="val clear_fix">
+                                        <span class="f_r name">보유배출권</span>
+                                        <div class="clear_fix">
+                                            <strong class="f_l num">400,000<span class="unit"> 톤</span></strong>
+                                            <strong class="f_r num">1,400,000<span class="unit"> 톤</span></strong>
+                                        </div>
+                                        <progress max="100" value="30"></progress>
+                                    </div>
+                                </div>
+                                <div class="chart_wrap toggle">
+                                    <h2 class="box_tit">추정배출량(전일기준)</h2>
+                                    <strong class="percent"><span class="num">20</span>%</strong>
+                                    <div class="val clear_fix">
+                                        <span class="f_r name">보유배출권</span>
+                                        <div class="clear_fix">
+                                            <strong class="f_l num">500,000<span class="unit"> 톤</span></strong>
+                                            <strong class="f_r num">1,300,000<span class="unit"> 톤</span></strong>
+                                        </div>
+                                        <progress max="100" value="40"></progress>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 경고 class명 act 추가
+                                <div class="bottom_box act"> -->
+                            <div class="bottom_box">
+                                <div class="chart_wrap">
+                                    <h2 class="box_tit">연말기준 배출량(전망)</h2>
+                                    <strong class="percent"><span class="num">120</span>%</strong>
+                                    <div class="val clear_fix">
+                                        <span class="f_r name">보유배출권</span>
+                                        <div class="clear_fix">
+                                            <strong class="f_l num">750,000<span class="unit"> 톤</span></strong>
+                                            <strong class="f_r num">1,500,000<span class="unit"> 톤</span></strong>
+                                        </div>
+                                        <progress max="100" value="40"></progress>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w65 f_r chart_wrap padding_0">
+                            <div class="column_fix">
+                                <div class="chart_txt">
+                                    <div>1기</div>
+                                    <div>2기</div>
+                                    <div>3기</div>
+                                </div>
+                                <div id="chart_all"></div>
+                            </div>
+                        </div>
+
+                        <div class="w50 v2">
+                            <h2 class="box_tit mb10">연료별 세부현황</h2>
+                            <div class="chart_wrap v2">
+                                <div class="pie_fix">
+                                    <div class="all_data legend_r">
+                                        <span>총<strong class="data energy">35,645</strong>톤</span>
+                                    </div>
+                                    <div id="chart_03_1" style="position: relative;"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="w50 v2 f_r">
+                            <h2 class="box_tit mb10">연료별 세부현황</h2>
+                            <div class="chart_wrap v2">
+                                <div class="pie_fix">
+                                    <div class="all_data legend_r">
+                                        <span>총<strong class="data use">35,645</strong>톤</span>
+                                    </div>
+                                    <div id="chart_03_2" style="position: relative;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <script>
+            // s: v3.0_20210806 수정 내용 추가 및 수정
+            // s : 년도별 대응 현황 차트 토글버튼
+            $(document).ready(function(){
+                $('.wrap_btn_toggle').click(function(){
+                    $('.btn_toggle').toggleClass('on');
+                    $('.chart_wrap.toggle').toggleClass('on');
+                });
+            });
+            // e : 년도별 대응 현황 차트 토글버튼
+
+            // 막대그래프
+            Highcharts.chart('chart_all', {
+                credits: {enabled: false},//highchart 워터마크 숨김처리
+                chart: {
+                    type: 'column',
+                    height: 440,
+                    // width: 1050,
+                    marginTop: 100 //  범례위 막대그래프 안들어오게
+                },
+
+                title: {
+                    text: ''
+                },
+
+                xAxis: {
+                    categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
+                    labels: {
+                        style: {
+                            color: '#666666',
+                            fontSize: '14px',
+                            fontWeight:'600',
+                            fontFamily: 'Nanum Square'
+                        },
+                    },
+                    lineColor: '#222',
+                    lineWidth: 1,
+                    tickWidth: 0,
+
+                    plotBands: [{
+                        // color: 'rgba(245,249,235,0)', // Color value
+                        // borderWidth: 1,
+                        // borderColor: '#efefef',
+                        from: -1, // Start of the plot band
+                        to: 2.5 // End of the plot band
+                    }, {
+                        // color: 'rgb(234,244,216)', // Color value
+                        // borderWidth: 1,
+                        // borderColor: '#efefef',
+                        from: 2.5, // Start of the plot band
+                        to: 5.5 // End of the plot band
+                    }, {
+                        // color: 'rgb(224,238,198)', // Color value
+                        // borderWidth: 1,
+                        // borderColor: '#efefef',
+                        from: 5.5, // Start of the plot band
+                        to: 10.5 // End of the plot band
+                    }]
+                },
+
+                yAxis: {
+                    allowDecimals: false,
+                    min: 0,
+                    title: {
+                        text: ''
+                    },
+                    labels: {
+                        enabled: false
+                    },
+                    gridLineColor: '#ffffff0d',
+                },
+
+                tooltip: {
+                enabled: true,
+                pointFormat: '{series.name} : {point.y}톤 <br/>',
+                shared: true,
+                padding: 17,
+                backgroundColor: '#404a58',
+                borderColor: '#404a58',
+                borderRadius: 5,
+                style: {
+                    color: '#fff',
+                    fontSize: '12px',
+                    fontWeight:'normal',
+                    fontFamily: 'Nanum Square',
+                }
+            },
+
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    },
+                    series: {
+                        pointWidth: 26,
+                    }
+                },
+
+                series: [{
+                    name: '보유배출권',
+                    data: [700, 500, 500, 300, 400, 700, 200, 500, 600, 200, 600],
+                    stack: '0',
+                    color: '#084fa4',
+                    borderColor: '#084fa4',
+                    dataLabels: {
+                        enabled: true,
+                        borderRadius: 12,
+                        backgroundColor: '084fa4',
+                        borderWidth: 0,
+                        // borderColor: '#084fa4',
+                        verticalAlign: top,
+                        y:-25,
+                        format: '{y} 만톤',
+                        className: 'bg_01',
+                        style: {
+                                fontWeight: 'nomal',
+                                fontSize: 10+"px",
+                                textOutline:0,// label 수치의 outline 제거 0으로 지정.
+                            },
+                        padding: 2,
+                    }
+                }, {
+                    name: '실제배출량',
+                    data: [600, 400, 200, 500, 600, 200, 100, 400, 500, 300, 700],
+                    stack: '1',
+                    color: '#4db6ac',
+                    borderColor: '#4db6ac',
+                    dataLabels: {
+                        enabled: true,
+                        borderRadius: 12,
+                        backgroundColor: '4db6ac',
+                        borderWidth: 0,
+                        // borderColor: '#4db6ac',
+                        verticalAlign: top,
+                        y:-25,
+                        format: '{y} 만톤',
+                        className: 'bg_02',
+                        style: {
+                                fontWeight: 'nomeal',
+                                fontSize: 10+"px",
+                                textOutline:0,// label 수치의 outline 제거 0으로 지정.
+
+                            },
+                        padding: 2,
+                    }
+                }],
+                legend : {
+                    reversed: false,
+                    symbolHeight: 12,
+                    symbolWidth: 12,
+                    symbolPadding: 5,
+                    symbolRadius: 0,
+                    itemStyle: {
+                        color: '#999',
+                        fontSize: '16px',
+                        fontWeight:'normal',
+                        fontFamily: 'Nanum Square',
+                    },
+                    align: 'right',
+                    verticalAlign: 'top',
+                    layout: 'vertical',
+                    x: 0,
+                    y: 25,
+                    itemMarginTop: 0,
+                    itemMarginBottom: 0,
+                    // backgroundColor: '#f2f2f2',
+                    // padding: 20,
+                    margin: -110,// 그래프 안으로
+                    // MarginRight: 0
+                }
+            });
+
+            // s : 세부현황 - 연료별
+            Highcharts.chart('chart_03_1', {
+                chart: {
+                    height: 320,
+                    type: 'pie',
+                    // margin: [-150, 0, 0, 0],
+                    backgroundColor:'transparent',
+                    width: 750,
+                },
+                credits: {enabled: false},//highchart 워터마크 숨김처리
+                title: {
+                    text: '',
+                },
+                tooltip: {
+                    enabled: true,
+                    pointFormat: '{name}<br>'+'0000'+'만톤<br>'+'('+'0000'+'kWh /'+'00'+'%)',
+                    shared: true,
+                    padding: 17,
+                    backgroundColor: '#404a58',
+                    borderColor: '#404a58',
+                    borderRadius: 5,
+                    style: {
+                        color: '#fff',
+                        fontSize: '12px',
+                        fontWeight:'normal',
+                        fontFamily: 'Nanum Square',
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        showInLegend: true,
+                        borderWidth: 0,
+                        colors: ['#80baff', '#55a2ff', '#3288ef', '#247be3', '#1264c6', '#084fa4', '#093b76', '#1a237e'],
+                        size: 250,
+                        cursor: 'pointer',
+                    }
+                },
+                // responsive: {
+                //     rules: [{
+                //         condition: {
+                //         maxWidth: 500
+                //         }
+                //     }]
+                // },
+                legend: {
+                    layout: 'horizontal',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    // labelFormatter: function() {
+                    //     return this.name + ' ' + this.y.f + '%';
+                    // },
+                    labelFormat:'{name} : <b>{percentage:.2f}%</b>',
+                    symbolHeight: 12,
+                    symbolWidth: 12,
+                    symbolPadding: 5,
+                    symbolRadius: 100,
+                    itemMarginTop: 5,
+                    itemMarginBottom: 10,
+                    width: 300,
+                    itemWidth: 150,
+                    // x:50,
+                    itemStyle: {
+                        // color: '#999',
+                        fontSize: '13px',
+                        fontWeight:'normal',
+                        fontFamily: 'Nanum Square',
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    innerSize: '60%',
+                    data:[{
+                        name: '전기',
+                        y: 70,
+                    },{
+                        name: 'LNG',
+                        y: 50,
+                    },{
+                        name: '경유',
+                        y: 50,
+                    },{
+                        name: '휘발류',
+                        y: 60,
+                    },{
+                        name: '부생연료',
+                        y: 50,
+                    },{
+                        name: 'LPG',
+                        y: 50,
+                    },{
+                        name: '등유',
+                        y: 60,
+                    },{
+                        name: '스팀',
+                        y: 50,
+                    }],
+                    dataLabels: {
+                        enabled: false,
+                        format: '{y} %',
+                        connectorWidth: 0,
+                        distance: -34, // 데이터 라벨 거리 조절
+                        symbolHeight: 12,
+                        symbolWidth: 12,
+                        symbolPadding: 5,
+                        symbolRadius: 0,
+                        itemStyle: {
+                            // color: '#999',
+                            fontSize: '18px',
+                            fontWeight:'normal',
+                            fontFamily: 'Nanum Square',
+                        }
+                    }
+                }]
+            });
+            // e : 세부현황 - 연료별
+
+            // s : 세부현황 - 용도별
+            Highcharts.chart('chart_03_2', {
+                chart: {
+                    height: 320,
+                    type: 'pie',
+                    // margin: [-150, 0, 0, 0],
+                    backgroundColor:'transparent',
+                },
+                credits: {enabled: false},//highchart 워터마크 숨김처리
+                title: {
+                    text: '',
+                },
+                tooltip: {
+                    enabled: true,
+                    pointFormat: '{name}<br>'+'0000'+'만톤<br>'+'('+'0000'+'kWh /'+'00'+'%)',
+                    shared: true,
+                    padding: 17,
+                    backgroundColor: '#404a58',
+                    borderColor: '#404a58',
+                    borderRadius: 5,
+                    style: {
+                        color: '#fff',
+                        fontSize: '12px',
+                        fontWeight:'normal',
+                        fontFamily: 'Nanum Square',
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        showInLegend: true,
+                        borderWidth: 0,
+                        colors: ['#b2dfdb', '#80cbc4', '#4db6ac', '#26a69a', '#00897b', '#00796b'],
+                        size: 250,
+                        cursor: 'pointer',
+                    }
+                },
+                legend: {
+                    layout: 'horizontal',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    // labelFormatter: function() {
+                    //     return this.name + ' ' + this.y + '%';
+                    // },
+                    labelFormat:'{name} : <b>{percentage:.2f}%</b>',
+                    symbolHeight: 12,
+                    symbolWidth: 12,
+                    symbolPadding: 5,
+                    symbolRadius: 100,
+                    itemMarginTop: 5,
+                    itemMarginBottom: 10,
+                    width: 300,
+                    itemWidth: 150,
+                    // x:50,
+                    itemStyle: {
+                        // color: '#999',
+                        fontSize: '13px',
+                        fontWeight:'normal',
+                        fontFamily: 'Nanum Square',
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    innerSize: '60%',
+                    data:[{
+                        name: '유선',
+                        y: 70,
+                    },{
+                        name: '무선',
+                        y: 60,
+                    },{
+                        name: 'IDC',
+                        y: 50,
+                    },{
+                        name: '건물',
+                        y: 50,
+                    },{
+                        name: '차량',
+                        y: 60,
+                    },{
+                        name: '기타',
+                        y: 50,
+                    }],
+                    dataLabels: {
+                        enabled: false,
+                        format: '{y} %',
+                        connectorWidth: 0,
+                        distance: -34, // 데이터 라벨 거리 조절
+                        symbolHeight: 12,
+                        symbolWidth: 12,
+                        symbolPadding: 5,
+                        symbolRadius: 0,
+                        itemStyle: {
+                            // color: '#999',
+                            fontSize: '18px',
+                            fontWeight:'normal',
+                            fontFamily: 'Nanum Square',
+                        }
+                    }
+                }]
+            });
+            // s : 세부현황 - 용도별
+        </script>
+    </div>
+</body>
+</html>

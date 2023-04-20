@@ -1,0 +1,123 @@
+.font-black {
+	color: #313131 !important;
+}
+
+.flex-start {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.flex-space-between {
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-end-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.flex-end {
+	display: flex;
+	justify-content: flex-end;
+}
+
+[type="button"] {
+	cursor: pointer;
+}
+
+.orgs {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.orgs .org_wrap {
+	display: flex;
+	flex-direction: column;	
+}
+
+.orgs .org_head {
+	height: 40px;
+	width: 250px;
+	box-sizing: border-box;
+	background-color: #ddd;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    font: 17px/1.4 'Nanum Square';
+    color: #313131;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.orgs .org_wrap div.org {
+	border:1px solid #ddd;
+	height: 350px;
+	width: 250px;
+	box-sizing: border-box;
+	background-color: #eee;
+	margin: 0px 10px 0px 0px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.orgs .org_wrap div.org td, .orgs .org_wrap div.org th{
+	font-weight: normal;
+}
+
+.orgs .org_wrap div.org table {
+	border: none !important;
+}
+
+.orgs .org_wrap div.org div.comment {
+	height: 309px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-weight: normal;
+}
+
+.orgs .org_wrap div.org div.comment.disabled {
+	background-color: #fff;
+}
+
+.orgs .org_wrap div table tbody tr th.thead {
+	position: absolute;
+	top: 0px;
+	height: 40px;
+	width: 252px;
+	box-sizing: border-box;
+}
+
+/*
+* user management
+*/
+textarea {
+	width: 100%;
+	height: 100px;
+	white-space: pre-line;
+	border:1px solid #ddd;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.반려 {
+    color: #e60012 !important; 
+}
+
+.승인 {
+    color: #1bced0 !important;
+}
+
+.as1 {
+    color: #1bced0 !important;
+}
+
+.as2 {
+    color: #0080e3 !important;
+}
+
+.as3 {
+    color: #e60012 !important;
+}
