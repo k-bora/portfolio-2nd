@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>김보라 - 포트폴리오</title>
 
     <meta name="title" content="김보라 - 포트폴리오">
@@ -30,6 +31,20 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.submit').attr('disabled', 'disabled');
+
+            $('input[type=text],input[type=email],textarea').on('input', function () {
+                if ($('input[type=text]').val() !== '' && $('input[type=email]').val() !== '' && $('textarea').val() !== '' ) {
+                    $('.submit').removeAttr("disabled");
+                }
+                else {
+                    $('.submit').attr('disabled', 'disabled');
+                }
+            });
+        });
+    </script>
     <script type="text/javascript">
         (function() {
             // https://dashboard.emailjs.com/admin/integration
@@ -46,8 +61,10 @@
                 emailjs.sendForm('service_7xy1fxg', 'template_0gcb7tg', this)
                     .then(function() {
                         console.log('SUCCESS!');
+                        alert('메세지를 보냈습니다. 확인 후 답장드리겠습니다.');
                     }, function(error) {
                         console.log('FAILED...', error);
+                        alert("메세지 전송에 실패하였습니다. violet9322@naver.com 문의주세요.");
                     });
             });
         }
@@ -102,9 +119,7 @@
                 <input type="email" name="from_name" placeholder="E-mail address">
                 <label>Message</label>
                 <textarea name="message" placeholder="Message"></textarea>
-                <div class="" onclick="alert('메세지를 보냈습니다.');">
-                    <input type="submit" value="Send" class="submit">
-                </div>    
+                <input type="submit" value="Send" class="submit">
             </form>
         </div>
     </section>

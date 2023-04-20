@@ -10,9 +10,13 @@
     border: 0;
     box-sizing: border-box;
 }
-*:focus {
-    outline:none;
+:focus-visible {
+    outline: 2px solid blue;
+    opacity: 0.5;
 }
+:active, input:focus-visible {
+    outline: none;
+  }
 html {
     font-size: 20px;
 }
@@ -28,6 +32,7 @@ ol, ul {
 	list-style: none;
 }
 a {
+    display: block;
     color: inherit;
     text-decoration: none;
     background: transparent;
@@ -95,14 +100,14 @@ header .full_grid nav ul.menu_box li{
 }
 header .full_grid nav ul.menu_box li a{
     display: inline-block;
-    line-height: 95px;
+    margin: 40px 0;
     position: relative;
 }
 header .full_grid nav ul.menu_box li a::after{
     content: "";
     position: absolute;
     left: 0;
-    bottom: 35%;
+    bottom: -35%;
     width: 105%;
     height: 2px;
     background-color: #101010;
@@ -117,7 +122,7 @@ header .full_grid nav ul.menu_box li a.menu_act::after{
     content: "";
     position: absolute;
     left: 0;
-    bottom: 35%;
+    bottom: -35%;
     width: 105%;
     height: 2px;
     background-color: #101010;
@@ -136,14 +141,14 @@ header>nav ul.mo_menu_box li{
 }
 header>nav ul.mo_menu_box li a{
     display: inline-block;
-    line-height: 95px;
+    margin: 40px 0;
     position: relative;
 }
 header>nav ul.mo_menu_box li a::after{
     content: "";
     position: absolute;
     left: 0;
-    bottom: 35%;
+    bottom: -35%;
     width: 105%;
     height: 2px;
     background-color: #101010;
@@ -158,7 +163,7 @@ header>nav ul.mo_menu_box li a.menu_act::after{
     content: "";
     position: absolute;
     left: 0;
-    bottom: 35%;
+    bottom: -35%;
     width: 105%;
     height: 2px;
     background-color: #101010;
@@ -342,21 +347,20 @@ section .full_grid .main_title h2, .typing{
     header>nav ul.mo_menu_box li {
         padding: 0 25px;
         height: 100%;
-        height: 50px;
         font-size: 17px;
         text-align: center;
         transition: all 1s;
     }
     header>nav ul.mo_menu_box li a {
         display: inline-block;
-        line-height: 50px;
         position: relative;
+        margin: 20px 0;
     }
     header>nav ul.mo_menu_box li a::after {
         content: "";
         position: absolute;
         left: 0;
-        bottom: 15%;
+        bottom: -35%;
         width: 105%;
         height: 2px;
         background-color: #101010;
@@ -367,7 +371,7 @@ section .full_grid .main_title h2, .typing{
         content: "";
         position: absolute;
         left: 0;
-        bottom: 15%;
+        bottom: -35%;
         width: 105%;
         height: 2px;
         background-color: #101010;
@@ -416,10 +420,9 @@ sub portfolio
     clear: both;
 }
 .portfolio_title h2{
-    font-size: 45px;
+    padding: 35px;
+    font-size: 33px;
     color: #101010;
-    height: 200px;
-    line-height: 200px;
 }
 .portfolio_img{
     width: 65%;
@@ -479,8 +482,7 @@ sub portfolio
     /* background-color: #efefef; */
     display: flex;
     justify-content:space-between;
-    align-content:center;
-    line-height: 150px;
+    align-items: center;
 }
 .portfolio_ft_nav svg, .portfolio_ft_nav img{
     opacity: 0.5;
@@ -648,6 +650,12 @@ sub about
 .program_text.pt05{
     width: 92px;
 }
+.program_text.pt06{
+    width: 70px;
+}
+.program_text.pt07{
+    width: 65px;
+}
 
 @media (max-width:1024px){
     .img_wrap{
@@ -743,6 +751,12 @@ sub about
     .program_text.pt05{
         width: 57px;
     }
+    .program_text.pt06{
+        width: 50px;
+    }
+    .program_text.pt07{
+        width: 45px;
+    }
 }
 
 /*============================================================
@@ -793,7 +807,12 @@ sub contact
     background: #fafafa;
     padding: 12px;
 }
+/* .alert_box {
+    width: 50%;
+    margin: 0 auto;
+} */
 .form_wrap input.submit{
+    /* width: 100%; */
     font-size: 20px;
     border: solid 2px #000;
     font-family: 'Noto Sans KR', sans-serif;
@@ -806,6 +825,13 @@ sub contact
     cursor: pointer;
     color: #fff;
     background-color: #000;
+    transition: 0.5s;
+}
+.form_wrap input.submit:disabled{
+    cursor: default;
+    background-color: #eee;
+    border-color: #999;
+    color: #999;
     transition: 0.5s;
 }
 input::placeholder, textarea::placeholder {
@@ -822,6 +848,9 @@ textarea::-webkit-input-placeholder,  textarea:-ms-input-placeholder{
     color: #000;
     font-size: 15px;
     font-weight: 600;
+}
+.txt_clr {
+    color: red;
 }
 @media (max-width:1024px){
     .form_wrap input, .form_wrap textarea{
