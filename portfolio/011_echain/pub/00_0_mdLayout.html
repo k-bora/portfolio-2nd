@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT E-Chain 서비스 플랫폼</title>
+    <link rel="stylesheet" href="../src/main/webapp/css/reset.css">
+    <link rel="stylesheet" href="../src/main/webapp/css/content.css">
+    <script src="../src/main/webapp/js/plugins/jquery-3.5.1.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/datatables.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/jquery-ui.min.js"></script>
+    <script src="../src/main/webapp/js/frontUI.js"></script>
+    <style>
+        @media (max-width: 500px) {
+            body {position: fixed; overflow: hidden;}
+            #wrap::after {content: "모바일 지원을 하지 않습니다."; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #fff; z-index: 999999999;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="container" class="pgContainer">
+            <header class="header">
+                <h1 class="header__logo">KT E CHAIN</h1>
+                <div class="haeder__userInfo">
+                    <!-- btn--header__noti--new 새 알림이 있을 경우 클래스 추가 -->
+                    <a href="#none" class="btn btn--header btn--header__noti btn--header__noti--new">알림<span class="iconNew">new</span></a>
+                    <div class="pushBox pushBox--open">
+                        <strong class="pushBox__title">알림내역<span class="pushBox__badge">2</span></strong>
+                        <div class="pushBox__content">
+                            <ul class="pushBox__list">
+                                <li class="pushBox__item">
+                                    <span class="pushBox__contentBadge pushBox__contentBadge--green">매칭완료</span>
+                                    <strong class="pushBox__contentTitle ellipsis">외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적</strong>
+                                    <span class="pushBox__contentdate">2022.03.23</span>
+                                    <p class="pushBox__contentText">text text text text text text text text text text text text text text text text </p>
+                                </li>
+                                <li class="pushBox__item">
+                                    <span class="pushBox__contentBadge pushBox__contentBadge--red">승인반려</span>
+                                    <strong class="pushBox__contentTitle ellipsis">외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적</strong>
+                                    <span class="pushBox__contentdate">2022.03.23</span>
+                                    <p class="pushBox__contentText">text text text text text text text text text text text text text text text text </p>
+                                </li>
+                                <li class="pushBox__item">
+                                    <span class="pushBox__contentBadge pushBox__contentBadge--blue">승인완료</span>
+                                    <strong class="pushBox__contentTitle ellipsis">외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적</strong>
+                                    <span class="pushBox__contentdate">2022.03.23</span>
+                                    <p class="pushBox__contentText">text text text text text text text text text text text text text text text text </p>
+                                </li>
+                                <li class="pushBox__item pushBox__item--read">
+                                    <span class="pushBox__contentBadge pushBox__contentBadge--gray">매칭완료</span>
+                                    <strong class="pushBox__contentTitle ellipsis">외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적</strong>
+                                    <span class="pushBox__contentdate">2022.03.23</span>
+                                    <p class="pushBox__contentText">text text text text text text text text text text text text text text text text </p>
+                                </li>
+                                <li class="pushBox__item pushBox__item--read">
+                                    <span class="pushBox__contentBadge pushBox__contentBadge--blue">승인완료</span>
+                                    <strong class="pushBox__contentTitle ellipsis">외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적외부감축사업 인증실적</strong>
+                                    <span class="pushBox__contentdate">2022.03.23</span>
+                                    <p class="pushBox__contentText">text text text text text text text text text text text text text text text text </p>
+                                </li>
+                            </ul>
+
+                            <div class="dataTables_paginate dataTables_paginate--pg">
+                                <div class="dataTables_paginate--pg__inner">
+                                    <a class="paginate_button first disabled"><span class="blind">First</span></a>
+                                    <a class="paginate_button previous "><span class="blind">Previous</span></a>
+                                    <span>
+                                        <a class="paginate_button current">1</a>
+                                        <a class="paginate_button">2</a>
+                                        <a class="paginate_button">3</a>
+                                        <a class="paginate_button">4</a>
+                                        <span class="ellipsis" style="float: left;">…</span>
+                                        <a class="paginate_button">5</a>
+                                        <a class="paginate_button">6</a>
+                                    </span>
+                                    <a class="paginate_button next"><span class="blind">Next</span></a>
+                                    <a class="paginate_button last disabled"><span class="blind">Last</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn--header btn--header__logout">로그아웃</button>
+                    <div class="haeder__myBox">
+                        <div class="haeder__myBox__my">
+                            <button class="btn btn--header btn--user"><span>admin</span> 님</button>
+                            <div class="pushBox pushBox--user pushBox--open">
+                                <div class="pushBox__content pushBox__content--user">
+                                    <ul class="pushBox__list">
+                                        <li class="pushBox__item pushBox__item--user"><a href="#none" class="pushBox__link">내 정보</a></li>
+                                        <li class="pushBox__item pushBox__item--user"><a href="#none" class="pushBox__link">사업 현황</a></li>
+                                        <li class="pushBox__item pushBox__item--user"><a href="#none" class="pushBox__link">인증실적 현황</a></li>
+                                        <li class="pushBox__item pushBox__item--user"><a href="#none" class="pushBox__link">알림함</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#none" class="nav__link">
+                            <span class="nav__icon"></span>
+                            통합대시보드
+                            <span class="nav__arrow"></span>
+                        </a>
+                    </li>
+                    <li class="nav__item nav__item--current">
+                        <a href="#none" class="nav__link">
+                            <span class="nav__icon"></span>
+                            시스템 관리
+                            <span class="nav__arrow nav__arrow--down"></span>
+                        </a>
+                        <ul class="nav__list nav__list--depth">
+                            <li class="nav__item">
+                                <a href="#none" class="nav__link">
+                                    관리자 관리
+                                    <span class="nav__arrow nav__arrow--down"></span>
+                                </a>
+                                <ul class="nav__list nav__list--depth2">
+                                    <li class="nav__item nav__item--current">
+                                        <a href="#none" class="nav__link">관리자 정보 관리</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#none" class="nav__link">관리자 승인 관리</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#none" class="nav__link">관리자 권한 그룹 관리</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#none" class="nav__link">관리자 이력 관리</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#none" class="nav__link">휴면 관리자 관리</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#none" class="nav__link">
+                                    코드 관리
+                                    <span class="nav__arrow"></span>
+                                </a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="#none" class="nav__link">
+                                    메뉴 관리
+                                    <span class="nav__arrow"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div id="content" class="pgContent">
+                <section class="pgHeader">
+                    <h1 class="pgTitle">메뉴관리</h1>
+                    <div class="pgPath">홈 &gt; 시스템 관리 &gt; 관리자 관리 &gt; 메뉴 관리</div>
+                </section>
+                <div class="pgSection">
+                    <h2>모듈리스트</h2>
+                    <hr>
+                    <h3>1. mdBox</h3>
+                    <div class="mdBox">
+                        <h4 class="mdBox__title">박스타이틀</h4>
+                    </div>
+                    <hr>
+                    <h3>2. button</h3>
+                    <!-- 비활성화시 속성 disabled 추가 -->
+                    <button class="btn btn--pg">저장</button>
+                    <button class="btn btn--pg btn--bgClr">등록</button>
+                    <button class="btn btn--pg" disabled>저장</button>
+                    <button class="btn btn--pg btn--bgClr" disabled>등록</button>
+                    <button class="btn btn--pg btn--reset"><span class="btn--reset__icon"></span>초기화</button>
+                    <button class="btn btn--pg btn--border">저장</button>
+                    <button class="btn btn--pg btn--border" disabled>저장</button>
+                    <button class="btn btn--pg btn--border  btn--border--clr">등록</button>
+                    <button class="btn btn--pg btn--border  btn--border--clr" disabled>등록</button>
+                    <hr>
+                    <h3>3. input</h3>
+                    <input type="text" name="" id="" class="pgInput" placeholder="공백 포함하여 입력">
+                    <br>            
+                    <br>            
+                    <input type="text" name="" id="" class="pgInput" placeholder="공백 포함하여 입력" disabled>                    
+                    <br><br>
+                    <input type="text" name="" id="" class="pgInput pgInput--search" placeholder="">
+                    <button class="btn btn--search"><span class="blind">검색</span></button>
+                    <br><br>
+                    <label for="checkbox" class="formlabel">
+                        <input type="checkbox" name="" id="checkbox" class="inputItem inputItem--check">
+                        <span class="checkboxBg"></span> 전시
+                    </label>
+                    
+                    <label for="checkbox" class="formlabel">
+                        <input type="checkbox" name="" id="checkbox" class="inputItem inputItem--check" disabled>
+                        <span class="checkboxBg"></span> 전시
+                    </label>
+                    <br><br>
+                    <span class="formlabelGroup">
+                        <label for="radioCheck" class="formlabel formlabel--pg">
+                            <input type="radio" name="radio" id="radioCheck" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radio"></span> 전시
+                        </label>
+                    </span>
+                    <span class="formlabelGroup">
+                        <label for="radioCheck2" class="formlabel formlabel--pg">
+                            <input type="radio" name="radio" id="radioCheck2" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radio"></span> 전시 안함
+                        </label>
+                    </span>
+                    <br><br>
+                    <select name="" id="" class="pgInput pgInput--dropdown">
+                        <option value="">aa</option>
+                        <option value="">aaaaaaaaaa</option>
+                        <option value="">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</option>
+
+                    </select>
+                    <br><br>
+                    <span class="formlabelGroup formlabelGroup--btn">
+                        <label for="radioCheck3" class="formlabel formlabel--pg">
+                            <input type="radio" name="radioBtn" id="radioCheck3" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radioBtn">오늘</span> 
+                        </label>
+                    </span>
+                    <span class="formlabelGroup formlabelGroup--btn">
+                        <label for="radioCheck4" class="formlabel formlabel--pg">
+                            <input type="radio" name="radioBtn" id="radioCheck4" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radioBtn">일주일</span> 
+                        </label>
+                    </span>
+                    <span class="formlabelGroup formlabelGroup--btn">
+                        <label for="radioCheck5" class="formlabel formlabel--pg">
+                            <input type="radio" name="radioBtn" id="radioCheck5" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radioBtn">한달</span> 
+                        </label>
+                    </span>
+                    <span class="formlabelGroup formlabelGroup--btn">
+                        <label for="radioCheck6" class="formlabel formlabel--pg">
+                            <input type="radio" name="radioBtn" id="radioCheck6" class="inputItem inputItem--check">
+                            <span class="checkboxBg checkboxBg--radioBtn">일년</span> 
+                        </label>
+                    </span>
+                    <hr>
+                    <h3>4. 팝업</h3>
+                    <button class="btn mdBtn" onclick="popup.open($('.popConfirm'));">컨펌 팝업</button>
+                    <br><br>
+                    <button class="btn mdBtn" onclick="popup.open($('.popAlert'));">알럿 팝업</button>
+                    <hr>
+                    <h3>5. 페이지 서칭폼 리스트</h3>
+                    <div class="mdBox">
+                        <h4 class="mdBox__title">메뉴정보</h4>
+                        <button class="btn btn--pg btn--bgClr">등록</button>
+                        <ul class="pgSearchForm">
+                            <li class="pgSearchForm__item">
+                                <label class="pgSearchForm__label">메뉴 경로</label>
+                                <span class="pgSearchForm__input pgSearchForm__input--text">회원</span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <label class="pgSearchForm__label">메뉴명<strong class="required"><span class="blind">필수항목</span></strong></label>
+                                <span class="pgSearchForm__input"><input type="text" name="" id="" class="pgInput pgInput--unit" placeholder="공백 포함하여 입력"> <span class="helpText">(<span>0</span>/20자)</span></span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <label class="pgSearchForm__label">메뉴 URL</label>
+                                <span class="pgSearchForm__input"><input type="text" name="" id="" class="pgInput" placeholder=""></span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <label class="pgSearchForm__label">메뉴 순서<strong class="required"><span class="blind">필수항목</span></strong></label>
+                                <span class="pgSearchForm__input"><input type="number" name="" id="" class="pgInput" placeholder="" min="0"></span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <label class="pgSearchForm__label">메뉴 순서<strong class="required"><span class="blind">필수항목</span></strong></label>
+                                <span class="pgSearchForm__input"><input type="number" name="" id="" class="pgInput pgInput--search" placeholder="" min="0"><button class="btn btn--search"><span class="blind">검색</span></button></span>
+                            </li>
+                            <li class="pgSearchForm__item pgSearchForm__item--half">
+                                <label class="pgSearchForm__label">메뉴 순서<strong class="required"><span class="blind">필수항목</span></strong></label>
+                                <span class="pgSearchForm__input"><input type="number" name="" id="" class="pgInput" placeholder="" min="0"></span>
+
+                                <label class="pgSearchForm__label">메뉴 순서<strong class="required"><span class="blind">필수항목</span></strong></label>
+                                <span class="pgSearchForm__input"><input type="text" name="" id="" class="pgInput pgInput--search" placeholder=""><button class="btn btn--search"><span class="blind">검색</span></button></span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__label">전시여부</span>
+                                <span class="pgSearchForm__input pgSearchForm__input--check">
+                                    <span class="formlabelGroup">
+                                        <label class="formlabel formlabel--pg">
+                                            <input type="radio" name="" id="" class="inputItem inputItem--check">
+                                            <span class="checkboxBg checkboxBg--radio"></span> 전시
+                                        </label>
+                                    </span>
+                                    <span class="formlabelGroup">
+                                        <label class="formlabel formlabel--pg">
+                                            <input type="radio" name="" id="" class="inputItem inputItem--check">
+                                            <span class="checkboxBg checkboxBg--radio"></span> 전시안함
+                                        </label>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__label">사용여부</span>
+                                <span class="pgSearchForm__input pgSearchForm__input--check">
+                                    <span class="formlabelGroup">
+                                        <label class="formlabel formlabel--pg">
+                                            <input type="radio" name="" id="" class="inputItem inputItem--check" disabled>
+                                            <span class="checkboxBg checkboxBg--radio"></span> 사용
+                                        </label>
+                                    </span>
+                                    <span class="formlabelGroup">
+                                        <label class="formlabel formlabel--pg">
+                                            <input type="radio" name="" id="" class="inputItem inputItem--check" disabled>
+                                            <span class="checkboxBg checkboxBg--radio"></span> 사용안함
+                                        </label>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item pgSearchForm__item--rowspan">
+                                <span class="pgSearchForm__label">담당자</span>
+                                <ul class="pgSearchForm pgSearchForm--rowspan">
+                                    <li class="pgSearchForm__item pgSearchForm__item--half">
+                                        <span class="pgSearchForm__label">성명</span>
+                                        <span class="pgSearchForm__input pgSearchForm__input--text">회원</span>
+
+                                        <span class="pgSearchForm__label">성명</span>
+                                        <span class="pgSearchForm__input pgSearchForm__input--text">회원</span>
+                                    </li>
+                                    <li class="pgSearchForm__item pgSearchForm__item--half">
+                                        <span class="pgSearchForm__label">전화번호</span>
+                                        <span class="pgSearchForm__input pgSearchForm__input--text">010-1234-56**</span>
+
+                                        <span class="pgSearchForm__label">이메일</span>
+                                        <span class="pgSearchForm__input pgSearchForm__input--text">abc@mail.com</span>
+                                    </li>
+                                    <li class="pgSearchForm__item pgSearchForm__item--half">
+                                        <span class="pgSearchForm__label">부서명</span>
+                                        <span class="pgSearchForm__input pgSearchForm__input--text">엠그램 컨버전스사업본부</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__label">인증유효기간</span>
+                                <span class="pgSearchForm__input">
+                                    <input type="text" name="" id="" class="pgInput pgInput--datepicker" placeholder="">
+                                    <span class="swaung">~</span>
+                                    <input type="text" name="" id="" class="pgInput pgInput--datepicker" placeholder="">
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__label">인증유효기간</span>
+                                <span class="pgSearchForm__input">
+                                    <input type="text" name="" id="" class="pgInput pgInput--datepicker" placeholder="" disabled>
+                                    <span class="swaung">~</span>
+                                    <input type="text" name="" id="" class="pgInput pgInput--datepicker" placeholder="" disabled>
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__label">사업계획서</span>
+                                <span class="pgSearchForm__input">
+                                    <span class="formlabelGroup formlabelGroup--file">
+                                        <label class="formlabel formlabel--pg">
+                                            <input type="file" name="" id="" class="pgInput pgInput--file">
+                                            <span class="checkboxBg checkboxBg--file">찾아보기</span>
+                                        </label>
+                                        <p class="pgInput pgInput--fileList">
+                                            <span class="pgInput--file__name ellipsis">첨부파일명.pdf</span>
+                                            <button class="btn btn--delete"><span class="blind">첨부파일 삭제</span></button>
+                                        </p>
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="dataTables_paginate dataTables_paginate--pg">
+                            <div class="dataTables_paginate--pg__inner">
+                                <a class="paginate_button first disabled"><span class="blind">First</span></a>
+                                <a class="paginate_button previous "><span class="blind">Previous</span></a>
+                                <span>
+                                    <a class="paginate_button current">1</a>
+                                    <a class="paginate_button">2</a>
+                                    <a class="paginate_button">3</a>
+                                    <a class="paginate_button">4</a>
+                                    <a class="paginate_button">5</a>
+                                    <a class="paginate_button">6</a>
+                                </span>
+                                <a class="paginate_button next"><span class="blind">Next</span></a>
+                                <a class="paginate_button last disabled"><span class="blind">Last</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>6. 페이지 테이블</h3>
+                    <div class="mdBox">
+                        <h4 class="mdBox__title">사업목록</h4>
+                        <section class="listBox">
+                            <span class="listBox__btns">
+                                <button class="btn btn--pg btn--bgClr">등록</button>
+                            </span>
+                            <table class="listTbl">
+                                <thead class="listTbl__thead listTbl__thead--trRow">
+                                    <tr class="listTbl__tr">
+                                        <th class="listTbl__thead__th" rowspan="2">
+                                            <label for="allCheck" class="formlabel">
+                                                <input type="checkbox" name="" id="allCheck" class="inputItem inputItem--check" >
+                                                <span class="checkboxBg"></span>
+                                            </label>
+                                        </th>
+                                        <th class="listTbl__thead__th" rowspan="2">번호</th>
+                                        <th class="listTbl__thead__th" rowspan="2">방법론</th>
+                                        <th class="listTbl__thead__th" rowspan="2">상태</th>
+                                        <th class="listTbl__thead__th" rowspan="2">처리자</th>
+                                        <th class="listTbl__thead__th" rowspan="2">사업명</th>
+                                        <th class="listTbl__thead__th" rowspan="2">예상 감축량</th>
+                                        <th class="listTbl__thead__th" rowspan="2">사업유형</th>
+                                        <th class="listTbl__thead__th" colspan="3">인증 유효기간 유형</th>
+                                        <th class="listTbl__thead__th" rowspan="2">사업 시작일</th>
+                                        <th class="listTbl__thead__th" rowspan="2">회사명</th>
+                                        <th class="listTbl__thead__th" rowspan="2">작성자</th>
+                                        <th class="listTbl__thead__th" rowspan="2">작성일</th>
+                                    </tr>
+                                    <tr class="listTbl__tr">
+                                        <th class="listTbl__thead__th listTbl__thead__th--row">구분</th>
+                                        <th class="listTbl__thead__th listTbl__thead__th--row">시작일</th>
+                                        <th class="listTbl__thead__th listTbl__thead__th--row">종료일</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="listTbl__tbody">
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">
+                                            <label for="check1" class="formlabel">
+                                                <input type="checkbox" name="" id="check1" class="inputItem inputItem--check ">
+                                                <span class="checkboxBg"></span>
+                                            </label>
+                                        </td>
+                                        <td class="listTbl__tbody__td">15</td>
+                                        <td class="listTbl__tbody__td">방법론명</td>
+                                        <td class="listTbl__tbody__td">검토대기</td>
+                                        <td class="listTbl__tbody__td">1ad**(김관*)</td>
+                                        <td class="listTbl__tbody__td"><a href="#none" class="listTbl__link">사업명</a></td>
+                                        <td class="listTbl__tbody__td">12,000</td>
+                                        <td class="listTbl__tbody__td">일반</td>
+                                        <td class="listTbl__tbody__td">고정형</td>
+                                        <td class="listTbl__tbody__td">2020.12.12</td>
+                                        <td class="listTbl__tbody__td">2020.01.11</td>
+                                        <td class="listTbl__tbody__td">2020.01.11</td>
+                                        <td class="listTbl__tbody__td">회사명</td>
+                                        <td class="listTbl__tbody__td">adm**(홍길*)</td>
+                                        <td class="listTbl__tbody__td">yyyy.mm.dd hh:mm:ss</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                    <hr>
+                    <h3>6. 메모(전달사항)</h3>
+                    <div class="mdBox">
+                        <h4 class="mdBox__title">메모(전달사항)</h4>
+                        <ul class="pgSearchForm pgSearchForm--memo">
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__input pgSearchForm__input--memoWrite">
+                                    <textarea name="" id="" cols="30" rows="10" class="pgInput"></textarea>
+                                    <input type="submit" name="" id="" class="btn btn--pg btn--border btn--border--clr" placeholder="" value="작성">
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <ul class="memoList">
+                                    <li class="memoList__item">
+                                        <div class="memoList__info">
+                                            <strong class="memoList__info__writer">
+                                                <span class="memoList__info__writer--clr">회사명회사명회사명 - 담당자</span>
+                                                <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                            </strong>
+                                            <strong class="memoList__info__date">yyyy.mm.dd hh:mm:ss</strong>
+                                        </div>
+                                        <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                        <button class="btn btn--delete"><span class="blind">메모삭제</span></button>
+                                    </li>
+                                    <li class="memoList__item">
+                                        <div class="memoList__info">
+                                            <strong class="memoList__info__writer">
+                                                <span class="memoList__info__writer--clr">회사명회사명회사명 - 담당자</span>
+                                                <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                            </strong>
+                                            <strong class="memoList__info__date">yyyy.mm.dd hh:mm:ss</strong>
+                                        </div>
+                                        <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                        <button class="btn btn--delete"><span class="blind">메모삭제</span></button>
+                                    </li>
+                                </ul>  
+                            </li>
+                        </ul>
+                        <div class="dataTables_paginate dataTables_paginate--pg">
+                            <div class="dataTables_paginate--pg__inner">
+                                <a class="paginate_button first "><span class="blind">First</span></a>
+                                <a class="paginate_button previous "><span class="blind">Previous</span></a>
+                                <span>
+                                    <a class="paginate_button current">1</a>
+                                    <a class="paginate_button">2</a>
+                                    <a class="paginate_button">3</a>
+                                    <a class="paginate_button">4</a>
+                                    <a class="paginate_button">5</a>
+                                    <a class="paginate_button">6</a>
+                                </span>
+                                <a class="paginate_button next"><span class="blind">Next</span></a>
+                                <a class="paginate_button last disabled"><span class="blind">Last</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3>6. 메모(전달사항) table</h3>
+                    <div class="mdBox">
+                        <h4 class="mdBox__title">메모(전달사항)</h4>
+                        <ul class="pgSearchForm pgSearchForm--memo">
+                            <li class="pgSearchForm__item">
+                                <span class="pgSearchForm__input pgSearchForm__input--memoWrite">
+                                    <textarea name="" id="" cols="30" rows="10" class="pgInput"></textarea>
+                                    <input type="submit" name="" id="" class="btn btn--pg btn--border btn--border--clr" placeholder="" value="작성">
+                                </span>
+                            </li>
+                            <li class="pgSearchForm__item">
+                                <div class="memoList">
+                                    <table class="member_memo_list">
+                                        <thead style="display:none">
+                                            <tr>
+                                                <th>
+                                                    <h4 class="mdBox__title">메모(전달사항)</h4>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="memo_content memoList__item">
+                                                    <div class="memoList__info">
+                                                        <strong class="memoList__info__writer">
+                                                            <span class="memoList__info__writer--clr">엠그램</span>
+                                                            <span class="memoList__info__writer--marker">admin1234(박대한)</span>
+                                                        </strong>
+                                                        <strong class="memoList__info__date">2022.09.21 11:46:56</strong>
+                                                        <input type="button" class="btn btn--delete btnMemoDelete" value="353">
+                                                        <span class="blind">메모삭제</span>
+                                                    </div>
+                                                    <p class="memoList__text">담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자 메모내용 담당자</p>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- s: 팝업 -->
+        <div class="popDimLayer"></div>
+        <div class="popWrap popConfirm">
+            <div class="popWrap__inner">
+                <section class="popContent">
+                    <h1 class="popTitle">비밀번호 변경안내</h1>
+                    <div class="popBody">
+                        <p class="popText">사이트의 원활한 이용을 위하여 비밀번호를 변경하여 주세요.</p>
+                        <p class="popText">비밀번호를 변경하시지 않을 경우 시스템 이용에 제한이 있습니다.</p>
+
+                        <ul class="formBoxLsit">
+                            <li class="formItem">
+                                <label class="formlabel">
+                                    <span class="formlabel__text">현재 비밀번호
+                                        <strong class="required"><span class="blind">필수항목</span></strong>
+                                    </span>
+                                    <input type="text" id="" class="inputItem inputItem--text pwChange__inputItem" placeholder="">
+                                </label>
+                            </li>
+                            <li class="formItem">
+                                <label class="formlabel">
+                                    <span class="formlabel__text">새 비밀번호
+                                        <strong class="required"><span class="blind">필수항목</span></strong>
+                                    </span>
+                                    <input type="text" id="" class="inputItem inputItem--text pwChange__inputItem" placeholder="">
+                                </label>
+                            </li>
+                            <li class="formItem">
+                                <label class="formlabel">
+                                    <span class="formlabel__text">새 비밀번호 확인
+                                        <strong class="required"><span class="blind">필수항목</span></strong>
+                                    </span>
+                                    <input type="text" id="" class="inputItem inputItem--text pwChange__inputItem" placeholder="">
+                                </label>
+                            </li>
+                        </ul>
+                        <ul class="infoText infoText--pop">
+                            <li class="infoText__Item">영문(대소문자 구분) 숫자, 특수문자 외 2개 이상 조합 10~20자까지 가능합니다.</li>
+                            <li class="infoText__Item">동일 문자를 3회 이상 사용할 수 없습니다.</li>
+                            <li class="infoText__Item">아이디와 동일한 비밀번호를 사용할 수 없습니다.</li>
+                            <li class="infoText__Item">이전 비밀번호는 사용하실 수 없습니다.</li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="popBtns">
+                    <input type="reset" value="다음에 변경" class="btn btn--pop" onclick="popup.close($('.popConfirm'));">
+                    <input type="submit" value="저장" class="btn btn--pop btn--bgClr">
+                </div>
+            </div>
+        </div>
+        <div class="popWrap popAlert">
+            <div class="popWrap__inner">
+                <section class="popContent">
+                    <h1 class="popTitle">아이디찾기</h1>
+                    <div class="popBody">
+                        <p class="popText">입력하신 정보와 일치하는 아이디입니다.</p>
+                        <p class="popText">확인 클릭 시 로그인 페이지로 이동합니다.</p>
+                    </div>
+                </section>
+                <div class="popBtns">
+                    <input type="button" value="확인" class="btn btn--pop btn--bgClr" onclick="popup.close($('.popAlert'));">
+                </div>
+            </div>
+        </div>
+        <!-- // e: 팝업 -->
+    </div>
+    <script>
+        $(function(){  
+            // datatable
+            $('.listTbl').DataTable(dataTableOpt);
+            $('.member_memo_list').DataTable(memoDataTableOpt);
+        });
+
+    </script>
+</body>
+</html>

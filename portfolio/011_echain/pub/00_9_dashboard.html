@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - KT e-chain</title>
+    <link rel="stylesheet" href="../src/main/webapp/css/reset.css">
+    <link rel="stylesheet" href="../src/main/webapp/js/plugins/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../src/main/webapp/css/ui.fancytree.css">
+    <link rel="stylesheet" href="../src/main/webapp/css/content.css">
+    <script src="../src/main/webapp/js/plugins/jquery-3.5.1.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/jquery-ui.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/jquery.fancytree.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/chart.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/swiper-bundle.min.js"></script>
+    <script src="../src/main/webapp/js/plugins/datatables.min.js"></script>
+    <script src="../src/main/webapp/js/frontUI.js"></script>
+    <style>
+        @media (max-width: 500px) {
+            body {position: fixed; overflow: hidden;}
+            #wrap::after {content: "모바일 지원을 하지 않습니다."; display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); color: #fff; z-index: 999999999;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" class="dashboard">
+        <div id="container" class="pgContainer">
+            <header class="header">
+                <h1 class="header__logo">KT E CHAIN</h1>
+                <div class="haeder__userInfo">
+                    <a href="#none" class="btn btn--header btn--header__noti">알림<span>new</span></a>
+                    <button class="btn btn--header btn--header__logout">로그아웃</button>
+                    <div class="haeder__myBox">
+                        <strong class="haeder__myBox__my"><button class="btn btn--header btn--user">admin 님</button></strong>
+                    </div>
+                </div>
+            </header>
+            <nav class="nav">
+            </nav>
+            <div id="content" class="pgContent">
+                <section class="pgHeader">
+                    <h1 class="pgTitle blind">Dashboard</h1>
+                </section>
+                <div class="pgSection">
+                    <div class="tabBox">
+                        <div class="tabSlide">
+                            <div class="swiper mySwiper">
+                                <section class="pgTab pgTab--dashboard swiper-wrapper" style=" border-radius: 0;">
+                                    <button class="btn btn--tab btn--dashTab btn--tab--current swiper-slide">전체 현황</button>
+                                    <button class="btn btn--tab btn--dashTab swiper-slide">재생에너지 발전 (태양광/풍력)</button>
+                                    <button class="btn btn--tab btn--dashTab swiper-slide">지열 열 공급</button>
+                                    <button class="btn btn--tab btn--dashTab swiper-slide">태양열 열 공급</button>
+                                    <button class="btn btn--tab btn--dashTab swiper-slide">가로등 재생에너지 사용</button>
+                                    <button class="btn btn--tab btn--dashTab swiper-slide">LED 가로등 설치</button>
+                                </section>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                        <!-- 전체현황 -->
+                        <div id="pgTabContent0" class="mdBox mdBox--dashTabContent" style="display: block;">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">5</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //전체현황 -->
+                        <!-- 재생에너지 발전 -->
+                        <div id="pgTabContent1" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 재생에너지 발전 -->
+                        <!-- 지열 열 공급 -->
+                        <div id="pgTabContent2" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">5</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //지열 열 공급 -->
+                        <!-- 태양열 열 공급 -->
+                        <div id="pgTabContent3" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //태양열 열 공급 -->
+                        <!-- 가로등 재생에너지 사용 -->
+                        <div id="pgTabContent4" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">5</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //가로등 재생에너지 사용 -->
+                        <!-- LED 가로등 설치 -->
+                        <div id="pgTabContent5" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //LED 가로등 설치 -->
+                        <!-- 고효율 조명기기 교체 -->
+                        <div id="pgTabContent6" class="mdBox mdBox--dashTabContent">
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">사업 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">5</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mdBox__innerHalf">
+                                <h4 class="mdBox__title">인증실적 현황<span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                                <div class="dashTotalBox">
+                                    <a href="#none" class="dashTotalBox__all">
+                                        <span class="dashTotalBoxAll__title">전체</span>
+                                        <strong class="dashTotalBoxAll__text ellipsis">4</strong>
+                                    </a>
+                                    <ul class="dashTotalBox__iconlist">
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--yellowIcon txtClr--yellow">검토요청</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--blueIcon txtClr--blue">검토완료</span>
+                                                <strong class="iconlist__text ellipsis">2</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--greenIcon txtClr--green">승인완료</span>
+                                                <strong class="iconlist__text ellipsis">1</strong>
+                                            </a>
+                                        </li>
+                                        <li class="dashTotalBox__item">
+                                            <a href="#none" class="dashTotalBox__link">
+                                                <span class="iconlist__title iconlist__title--redIcon txtClr--red">반려</span>
+                                                <strong class="iconlist__text ellipsis">0</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //고효율 조명기기 교체 -->
+                    </div>
+                    <div class="tabBox tabBox--threeQuarters">
+                        <ul class="chartTab">
+                            <li class="chartTab__item chartTab__item--current"><h4 class="mdBox__title mdBox__title--tab"><button class="btn btn--titleTab">KOC 인증실적 현황</button></h4></li>
+                            <li class="chartTab__item"><h4 class="mdBox__title mdBox__title--tab"><button class="btn btn--titleTab">온실가스 저감량</button></h4></li>
+                        </ul>
+                        <div id="chartTabContent0" class="mdBox chartTabContent" style="display: block;">
+                            <section class="pgTab pgTab--line">
+                                <button class="btn btn--lineTab btn--lineTab--current">월별</button>
+                                <button class="btn btn--lineTab ">연도별</button>
+                            </section>
+                            <section class="listBox" id="pgTabLineContent0" style="display: block;">
+                                <div class="barChartBox">
+                                    <canvas id="myChart"width="400" height="100"></canvas>
+                                </div>
+                            </section>
+                            <section class="listBox" id="pgTabLineContent1">
+                                <div class="barChartBox">
+                                    <canvas id="myChart2"width="400" height="100"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                        <div id="chartTabContent1" class="mdBox chartTabContent">
+                            <section class="pgTab pgTab--line">
+                                <button class="btn btn--lineTab2 btn--lineTab--current">일별</button>
+                                <button class="btn btn--lineTab2">월별</button>
+                                <button class="btn btn--lineTab2">연도별</button>
+                            </section>
+                            <section class="listBox" id="pgTabLineCont2_0" style="display: block;">
+                                <div class="barChartBox">
+                                    <canvas id="myChart3" width="400" height="100"></canvas>
+                                </div>
+                            </section>
+                            <section class="listBox" id="pgTabLineCont2_1">
+                                <div class="barChartBox">
+                                    <canvas id="myChart4" width="400" height="100"></canvas>
+                                </div>
+                            </section>
+                            <section class="listBox" id="pgTabLineCont2_2">
+                                <div class="barChartBox">
+                                    <canvas id="myChart5" width="400" height="100"></canvas>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="mdBox mdBox--half mdBox--half--2">
+                        <h4 class="mdBox__title">모니터링 장비 현황 <span class="helpText helpText--date">2022.00.00 기준</span></h4>
+                        <div class="pieChartBox">
+                            <canvas id="myChart6"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="mdBox mdBox--half">
+                        <h4 class="mdBox__title">공지사항</h4>
+                        <section class="listBox">
+                            <table class="listTbl">
+                                <colgroup>
+                                    <col style="width: 120px;">
+                                    <col>
+                                    <col style="width: 156px;">
+                                </colgroup>
+                                <thead class="listTbl__thead">
+                                    <tr class="listTbl__tr">
+                                        <th class="listTbl__thead__th" rowspan="2">구분</th>
+                                        <th class="listTbl__thead__th" rowspan="2">제목</th>
+                                        <th class="listTbl__thead__th" rowspan="2">등록일</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="listTbl__tbody">
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">전체</td>
+                                        <td class="listTbl__tbody__td listTbl__tbody__td--alignLeft">
+                                            <a href="#none" class="listTbl__link listTbl__link--ellipsis ellipsis">text text text text text text text text text text text text text text text text text text text text text text text text text text text text</a>
+                                        </td>
+                                        <td class="listTbl__tbody__td">2022.00.00</td>
+                                    </tr>
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">CMS</td>
+                                        <td class="listTbl__tbody__td listTbl__tbody__td--alignLeft">
+                                            <a href="#none" class="listTbl__link listTbl__link--ellipsis ellipsis">text text text text text text text</a>
+                                        </td>
+                                        <td class="listTbl__tbody__td">2022.00.00</td>
+                                    </tr>
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">CMS</td>
+                                        <td class="listTbl__tbody__td listTbl__tbody__td--alignLeft">
+                                            <a href="#none" class="listTbl__link listTbl__link--ellipsis ellipsis">text text text text text text text </a>
+                                        </td>
+                                        <td class="listTbl__tbody__td">2022.00.00</td>
+                                    </tr>
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">CMS</td>
+                                        <td class="listTbl__tbody__td listTbl__tbody__td--alignLeft">
+                                            <a href="#none" class="listTbl__link listTbl__link--ellipsis ellipsis ">text text text text text text text</a>
+                                        </td>
+                                        <td class="listTbl__tbody__td">2022.00.00</td>
+                                    </tr>
+                                    <tr class="listTbl__tr">
+                                        <td class="listTbl__tbody__td">CMS</td>
+                                        <td class="listTbl__tbody__td listTbl__tbody__td--alignLeft">
+                                            <a href="#none" class="listTbl__link listTbl__link--ellipsis ellipsis">text text text text text text text</a>
+                                        </td>
+                                        <td class="listTbl__tbody__td">2022.00.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                        <button class="btn btn--more">더보기</button>
+                    </div>
+                    <div class="mdBox mdBox--half">
+                        <h4 class="mdBox__title">FAQ</h4>
+                        <ul class="titleListBox">
+                            <li class="titleListBox__item"><a href="#none" class="titleListBox__link ellipsis">Q 비밀번호 5회 오류 시 계정이 잠겨버리는데 꼭 관리자의 도움이 필요한가요?</a></li>
+                            <li class="titleListBox__item"><a href="#none" class="titleListBox__link ellipsis">Q 비밀번호 5회 오류 시 계정이 잠겨버리는데 꼭 관리자의 도움이 필요한가요?</a></li>
+                            <li class="titleListBox__item"><a href="#none" class="titleListBox__link ellipsis">Q 비밀번호 5회 오류 시 계정이 잠겨버리는데 꼭 관리자의 도움이 필요한가요?</a></li>
+                            <li class="titleListBox__item"><a href="#none" class="titleListBox__link ellipsis">Q 비밀번호 5회 오류 시 계정이 잠겨버리는데 꼭 관리자의 도움이 필요한가요?</a></li>
+                            <li class="titleListBox__item"><a href="#none" class="titleListBox__link ellipsis">Q 비밀번호 5회 오류 시 계정이 잠겨버리는데 꼭 관리자의 도움이 필요한가요?</a></li>
+                        </ul>
+                        <button class="btn btn--more">더보기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // s: KOC 인증실적 현황   
+    // s: 차트 월별
+        const labels = [
+          '3월',
+          '4월',
+          '5월',
+          '6월',
+          '7월',
+          '8월',
+          '9월',
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            type: 'bar',
+            label: '인증실적 현황(수량)',
+            backgroundColor: '#ffca83',
+            borderColor: '#ffca83',
+            data: [1000, 3000, 5000, 2000, 3000, 10000, 3000],
+            order:3,
+            borderWidth: 2,
+            maxBarThickness: 30,
+            yAxisID: 'y_sub',
+          },
+          {
+            type: 'line',
+            label: '상쇄배출권 이전 현황(수량)',
+            backgroundColor: '#2cbcb6',
+            borderColor: '#2cbcb6',
+            data: [2000, 7000, 1000, 5000, 6000, 9000, 6000],
+            order:1,
+            borderWidth: 2,
+            lineTension: 0.3
+          }]
+        };
+      
+        const config = {
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        // usePointStyle: true,
+                        boxWidth: 18,
+                        boxHeight: 8
+                    },
+                },
+
+            },
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                },
+                y_sub: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+
+                    // grid line settings
+                    grid: {
+                    drawOnChartArea: false, // only want the grid lines for one axis to show up
+                    },
+                },
+            }
+          }
+        };
+
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    
+    // e: 차트 월별
+
+    // s: 차트 연도별
+        const labels2 = [
+          '2016',
+          '2017',
+          '2018',
+          '2019',
+          '2020',
+          '2021',
+          '2022',
+        ];
+      
+        const data2 = {
+          labels: labels2,
+          datasets: [{
+            type: 'bar',
+            label: '인증실적 현황(수량)',
+            backgroundColor: '#ffca83',
+            borderColor: '#ffca83',
+            data: [3000, 1000, 3000, 5000, 2000, 3000, 10000],
+            order:3,
+            borderWidth: 2,
+            maxBarThickness: 30,
+            yAxisID: 'y_sub',
+          },
+          {
+            type: 'line',
+            label: '상쇄배출권 이전 현황(수량)',
+            backgroundColor: '#2cbcb6',
+            borderColor: '#2cbcb6',
+            data: [7000, 2000, 7000, 1000, 5000, 6000, 9000],
+            order:1,
+            borderWidth: 2,
+            lineTension: 0.3
+          }]
+        };
+      
+        const config2 = {
+          data: data2,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        // usePointStyle: true,
+                        boxWidth: 18,
+                        boxHeight: 8
+                    },
+                },
+
+            },
+            scales: {
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                },
+                y_sub: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+
+                    // grid line settings
+                    grid: {
+                    drawOnChartArea: false, // only want the grid lines for one axis to show up
+                    },
+                },
+            }
+          }
+        };
+
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config2
+        );
+    
+    // e: 차트 연도별
+    // e: KOC 인증실적 현황   
+
+    // s: 모니터링 장비 현황
+    // s: 도넛 차트
+    doughnutLabels = [
+                    '재생에너지 aaaaaaaaaaaaaaaaaaAAAAAAAAAAAAAAAA',
+                    '지열 열 공급 bbbbbbbbbbbbbbbbbbbbb',
+                    '태양열 열 공급 cccccccccccccccccccc',
+                    '가로등 재생에너지 ddddddddddddddd',
+                    'LED 가로등 설치 eeeeeeeeeeeee',
+                    '연료전환 fffffffffffffff',
+                ]
+     const ctx = document.getElementById('myChart6').getContext('2d');
+        const myChart6 = new Chart(ctx, {
+            // type: 'pie',
+            type: 'doughnut',
+            data:{
+                labels: doughnutLabels,
+                datasets: [{
+                    label: 'pie chart',
+                    data: [10,15,15,20,10,5],
+                    backgroundColor: 
+                    [
+                        '#ff8373',
+                        '#ffa177',
+                        '#ffda83',
+                        '#5fe3a1',
+                        '#55d8fe',
+                        '#a3a0fb',
+                    ],
+                    borderWidth: 0,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        align: 'center',
+                        labels: {
+                            padding: 15,
+                            boxWidth: 8,
+                            boxHeight: 8,
+                            usePointStyle: true,
+                            PointStyle:'circle',
+                        },
+                        // maxWidth: 160
+                    }
+
+                },
+                scales: {
+                    x: {
+                        beforeUpdate(axis) {
+                            const labels = axis.chart.data.labels;
+                            for (let i=0; i<labels.length; i++) {
+                                const lbl = labels[i];
+                                if (typeof lbl === 'string' && lbl.length > 10) {
+                                labels[i] = lbl.substring(0, 10)+"...";
+                                }
+                            }
+                        },
+                        display: false
+                    }
+                }
+            }
+        })
+
+
+
+    // e: 도넛 차트
+    // e: 모니터링 장비 현황
+
+
+    // s: 온실가스 저감량
+    // s: 차트 일별
+        const labels3 = [
+                '4월 1일',
+                '4월 2일',
+                '4월 3일',
+                '4월 4일',
+                '4월 5일',
+                '4월 6일',
+                '4월 7일',
+            ];
+      
+        const data3 = {
+          labels: labels3,
+          datasets: [{
+            type: 'bar',
+            label: '배출량 정보',
+            backgroundColor: '#ffca83',
+            borderColor: '#ffca83',
+            data: [1000, 3000, 5000, 2000, 3000, 10000, 10000],
+            order:3,
+            borderWidth: 2,
+            maxBarThickness: 30,
+          }]
+        };
+      
+        const config3 = {
+          data: data3,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        // usePointStyle: true,
+                        boxWidth: 18,
+                        boxHeight: 8
+                    },
+                },
+
+            },
+          }
+        };
+
+        const myChart3 = new Chart(
+            document.getElementById('myChart3'),
+            config3
+        );
+    // e: 일별
+
+    // s: 차트 월별
+        const labels4 = [
+                '4월',
+                '5월',
+                '6월',
+                '7월',
+                '8월',
+                '9월',
+                '10월',
+            ];
+      
+        const data4 = {
+          labels: labels4,
+          datasets: [{
+            type: 'bar',
+            label: '배출량 정보',
+            backgroundColor: '#ffca83',
+            borderColor: '#ffca83',
+            data: [1000, 3000, 5000, 2000, 3000, 10000, 3000],
+            order:3,
+            borderWidth: 2,
+            maxBarThickness: 30,
+          }]
+        };
+      
+        const config4 = {
+          data: data4,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        // usePointStyle: true,
+                        boxWidth: 18,
+                        boxHeight: 8
+                    },
+                },
+
+            },
+          }
+        };
+
+        const myChart4 = new Chart(
+            document.getElementById('myChart4'),
+            config4
+        );
+    // e: 월별
+
+
+   // s: 차트 연도별
+        const labels5 = [
+                '2016',
+                '2017',
+                '2018',
+                '2019',
+                '2020',
+                '2021',
+                '2022',
+            ];
+      
+        const data5 = {
+          labels: labels5,
+          datasets: [{
+            type: 'bar',
+            label: '배출량 정보',
+            backgroundColor: '#ffca83',
+            borderColor: '#ffca83',
+            data: [3000, 1000, 3000, 5000, 2000, 3000, 10000],
+            order:3,
+            borderWidth: 2,
+            maxBarThickness: 30,
+          }]
+        };
+      
+        const config5 = {
+          data: data5,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        // usePointStyle: true,
+                        boxWidth: 18,
+                        boxHeight: 8
+                    },
+                },
+
+            },
+          }
+        };
+
+        const myChart5 = new Chart(
+            document.getElementById('myChart5'),
+            config5
+        );
+    // e: 연도별
+    // e: 온실가스 저감량  
+
+
+
+        // 슬라이드 탭
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 6,
+            spaceBetween: 10,
+            slidesPerGroup: 6,
+            watchSlidesProgress: true,
+            // loop: true,
+            touchRatio: 0,//드래그 금지
+            loopFillGroupWithBlank: true,
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+            },
+            navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+            },
+            // breakpoints: { //반응형 조건 속성
+            //     1919: { //1919 이상일 경우
+            //     slidesPerView: 10,
+            //     slidesPerGroup: 10,
+            //     }
+            // }
+        });
+      </script>
+</body>
+</html>
