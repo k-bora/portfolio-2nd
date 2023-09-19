@@ -15,7 +15,7 @@ pre {white-space: pre-wrap; font-family: 'Pretendard';}
 .guideDetail #container{background-color: #f3f5f9;}
 .cityTour #container {background-color: #f3f5f9;}
 .botBtn #container {padding-bottom: 100px;}
-.chatbotPg #container{min-height: calc(100vh - 106px); padding-bottom: 50px; background-color: #f2f2f2;}
+/* .chatbotPg #container{min-height: calc(100vh - 106px); padding-bottom: 50px; background-color: #f2f2f2;} */
 .inner {position: relative; padding: 0 30px;}
 .inner .hr {height: 0; margin: 0;}
 
@@ -568,3 +568,31 @@ input[type="radio"]:checked+.inpRadioBg {background-image: url(../images/radio_o
 .numberCk .imgBoxWrap {justify-content: center;}
 .numberCk .name {font-weight: 600;}
 .registerTitle .date {display: inline-block; padding-left: 10px; font-size: 0.75rem; color: #7e7e7e;}
+
+.popChat {overflow: hidden; background-color: #fff; min-height: calc(100vh - 54px);}
+.popChat .btnClose {position: absolute; right: 0; top: 0; width: 60px; height: 60px; background-image: url(../images/pc_icon_close.png);}
+.popChat__header {padding: 20px; border-bottom: solid 1px #f0f0f0;}
+.popChat__header .tit {font-size: 1.125rem; font-weight: 600;}
+.popChat__inner {padding: 0 20px;}
+.popChat .langBox {display: flex; padding: 15px 0 5px; border-bottom: solid 1px #f0f0f0;}
+.popChat .langBox .tit {display: block; min-width: 70px; padding-top: 13px; color: #7e838e; font-size: 0.875rem;}
+.popChat .langBox .select {width: 200px;}
+.popChat .langBox .txt {color: #7e838e; font-size: 0.75rem; padding: 10px 0; line-height: 20px; font-weight: 400px;}
+.popChat .chatbot {padding: unset; padding: 10px 20px 0 20px; min-height: unset; overflow: auto; background-color: #fff;}
+.popChat .chatbot__date {padding: 15px 0 20px 0; font-size: 0.875rem;} 
+.popChat .myMessage {padding-bottom: 0;}
+.popChat .myMessage .myMessage__text {border-top-right-radius: 0; padding: 15px; font-size: 0.875rem; white-space: normal; word-wrap: break-word; word-break: break-all; font-weight: 300;} 
+.popChat .myMessage .myMessage__data {padding-bottom: 5px;} 
+.popChat .myMessage.myMessage--answer {padding-left: 40px;} 
+.popChat .myMessage.myMessage--answer .myMessage__text {background-color: #696969; color: #fff; border-top-left-radius: 0; border-top-right-radius: 15px;} 
+.answerPf {position: relative;}
+.answerPf .name {display: inline-block; font-size: 0.875rem; padding-bottom: 5px;}
+.answerPf .imgBoxWrap {position: absolute; left: -40px; top: -4px; padding-top: 0;}
+.answerPf .imgBoxWrap .boxPf {width: 30px; height: 30px;}
+.popChat__inputBox {position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px 20px 20px 20px; background-color: #fff;}
+.popChat__inputBox .chatbotSubmit {position: absolute; bottom: 26px; right: 30px; background-image: url(../images/icon_enter.png); background-size: 20px; cursor: pointer; box-shadow: rgba(255, 255, 255, 0.12) 0px 0px 2px 0px inset, rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.3) 0px 12px 60px; border-radius: 100%;}
+.chatTextarea {padding: 12px 40px 8px 15px; border-radius: 15px; background-color: #f7f7f7;}
+.popChat__inputBox .chatbotInput {height: 20px; min-height: 20px; padding: 0; background-color: transparent; font-size: 1rem;}
+.popChat__inputBox .chatbotInput::placeholder {font-size: 1rem;}
+.popChat__inputBox .chatbotInput:focus {border: 0;}
+.align {display: flex; flex-wrap: wrap; flex-direction: column; align-content: space-between;}
