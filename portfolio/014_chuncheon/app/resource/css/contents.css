@@ -272,7 +272,7 @@ button.input:focus {box-shadow: 0 0 0 1px inset var(--grayborClr);}
 .popupWrap--bottom .popup {height: 405px; max-width: 500px; border-radius: 0; border-top-left-radius: 25px; border-top-right-radius: 25px; 
   animation-name: bottomPopup;
 }
-.popupWrap--bottom.popupWrap--menu .popup {height: 375px;}
+.popupWrap--bottom.popupWrap--menu .popup {min-height: 375px; height: unset;}
 .popupWrap--bottom .popup__header {position: relative; padding: 24px 20px 15px 20px; text-align: left; height: 60px; max-height: 60px;}
 .popupWrap.selectSlide .popup__content {height: 280px; overflow: hidden; padding-bottom: 0;}
 .popupWrap--bottom .popup__btnBox {padding: 0;}
@@ -290,7 +290,7 @@ button.input:focus {box-shadow: 0 0 0 1px inset var(--grayborClr);}
 .popup__content.terms .box {padding-top: 20px;} */
 .popup__content.terms .centerBox {padding: 20px 0;}
 
-.popupWrap--full {padding: 0; display: block; position: absolute; left: 0; right: 0; top: 0; bottom: 0; width: 100%; height: 100%;}
+.popupWrap--full {padding: 0; display: block; position: fixed; left: 0; right: 0; top: 0; bottom: 0; width: 100%; height: 100%;}
 .popupWrap--full .popup {max-width: unset; border-radius: 0;}
 .popupWrap--full .popup__header {padding: 20px 70px; height: var(--header-height);}
 .popupWrap--full .popup__header .tit {font-size: 1.125rem; font-weight: 400;}
@@ -612,9 +612,9 @@ summary::-webkit-details-marker {display: none;}
 .menuCheckbox {position: relative; display: block; width: 100%; text-align: center;}
 .menuCheckbox .txt {display: inline-flex; padding-top: 3px; font-size: 0.75rem;}
 .menuCheckbox .checkbox {position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
-.menuCheckbox .checkboxBg {display: flex; align-items: center; justify-content: center; width: 100%; height: 68px; border-radius: 15px; box-shadow: 0 0 0 1px inset var(--grayborClr); background: url(../img/check-off@2x.png) no-repeat calc(100% - 5px) 5px / 14px;}
+.menuCheckbox .checkboxBg {display: flex; align-items: center; justify-content: center; width: 100%; min-height: 68px; aspect-ratio: 1 / 1; border-radius: 15px; box-shadow: 0 0 0 1px inset var(--grayborClr); background: url(../img/check-off@2x.png) no-repeat calc(100% - 5px) 5px / 14px;}
 .menuCheckbox .checkbox:checked+.checkboxBg { box-shadow: 0 0 0 2px inset var(--mainClr); background: var(--skyBlurBgClr2) url(../img/check-on@2x.png) no-repeat calc(100% - 5px) 5px / 14px;}
-.menuIcon {display: inline-block; width: 28px; height: 28px; background-position: center; background-repeat: no-repeat; background-size: 28px;}
+.menuIcon {display: inline-block; width: 40%; aspect-ratio: 1 / 1; background-position: center; background-repeat: no-repeat; background-size: 100%;}
 .menuIcon--01 {background-image: url(../img/icon-my-02@2x.png);}
 .menuIcon--02 {background-image: url(../img/icon-my-01@2x.png);}
 .menuIcon--03 {background-image: url(../img/icon-my-03@2x.png);}
@@ -627,19 +627,19 @@ summary::-webkit-details-marker {display: none;}
 .digitalIDcard {padding: 10px 20px 0;}
 .digitalIDcard__list {position: relative; width: 100%;}
 .digitalIDcard__item {width: 100%;}
-.digitalIDcard__item:not(:first-child) {margin-top: -150px;}
-.digitalIDcard__card {position:relative; width: 100%; min-height: 210px; padding: 15px 15px 20px 15px; border-radius: 20px;}
+.digitalIDcard__item:not(:first-child) {margin-top: -47%;}
+.digitalIDcard__card {position:relative; width: 100%; min-height: 210px; aspect-ratio: 67 / 42; padding: 15px 15px 20px 15px; border-radius: 20px; display: flex; flex-direction: column; justify-content: space-between;}
 .digitalIDcard__card.skyBlueBgClr {background-color: #7dc9ff;}
 .digitalIDcard__card.pupleBgClr {background-color: #572279;}
 .digitalIDcard__card.mintBgClr {background-color: #13b9bb;}
 .digitalIDcard__card.blueBgClr {background-color: var(--mainClr);}
 .digitalIDcard__logo {display: block; width: calc(100% - 38px); height: 35px; text-align: left;}
 .digitalIDcard__logo img {height: 100%;}
-.digitalIDcard__text {display: block; margin-top: 20px; color: var(--btnTxtClr); font-size: 12px; text-align: center;}
+.digitalIDcard__text {display: block; width: 100%; margin-top: 20px; color: var(--btnTxtClr); font-size: 12px; text-align: center;}
 .digitalIDcard__item.bookmark .digitalIDcard__card {box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); cursor: pointer;}
-.digitalIDcard__name {display: block; margin-top: 8px; color: var(--btnTxtClr); font-size: 36px; font-weight: 700; text-align: center; letter-spacing: 9px; line-height: 44px;}
+.digitalIDcard__name {display: block; width: 100%; margin-top: 8px; color: var(--btnTxtClr); font-size: 36px; font-weight: 700; text-align: center; letter-spacing: 9px; line-height: 44px;}
 .digitalIDcard__name > span {position: relative; top: 5px;}
-.digitalIDcard__date {display: flex; justify-content: center; column-gap: 8px; margin-top: 40px; color: var(--btnTxtClr); text-align: center; font-size: 0.75rem;}
+.digitalIDcard__date {display: flex; justify-content: center; column-gap: 8px; width: 100%; margin-top: 40px; color: var(--btnTxtClr); text-align: center; font-size: 0.75rem;}
 .digitalIDcard__bookmark {position: absolute; right: 15px; top: 15px; width: 28px; height: 28px; background: url(../img/icon-star@2x.png) no-repeat 0 0 / contain;}
 .digitalIDcard__bookmark.none {display: none;}
 .digitalIDcard__btn {display: block; width: fit-content; margin: 10px auto; padding: 13px 28px; font-size: 12px; border-radius: 20px; background-color: var(--btnTxtClr); border: 1px solid var(--grayborClr);}
@@ -652,7 +652,7 @@ summary::-webkit-details-marker {display: none;}
 .myMenu__list {display: flex; flex-wrap: wrap; gap: 30px 36px; margin-left: 16px; margin-top: 20px;}
 .myMenu__item {width: calc(33% - 32px); font-size: 14px; text-align: center;}
 .myMenu__link {display: flex; flex-direction: column;}
-.myMenu__item .menuIcon {width: 64px; height: 64px; margin:0 auto 10px; border-radius: 100%; border: 1px solid var(--grayborClr); background-color: #fafafc;}
+.myMenu__item .menuIcon {width: 64px; height: 64px; margin:0 auto 10px; border-radius: 100%; border: 1px solid var(--grayborClr); background-color: #fafafc; background-size: 45%;}
 .myMenu__edit {position: absolute; top:27px; right: 20px; padding-left: 18px; font-size: 12px; color: var(--txtClr);cursor: pointer;}
 .myMenu__edit::before {content: ''; position: absolute; left: 0; top: -1px; width: 16px; height: 16px; background: url(../img/icon-setting-s@2x.png) no-repeat 0 0 / contain;}
 .myMenu__add {display: flex; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 15px;}
