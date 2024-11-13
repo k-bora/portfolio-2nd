@@ -28,6 +28,12 @@
   <script src="../resource/js/plugin/jquery-ui.min.js"></script>
   <script src="../resource/js/plugin/swiper-bundle.min.js"></script>
 
+  <style>
+    body {background-color: #000;}
+    .wrap {position: relative; margin: 0 auto; max-width: 500px; -ms-overflow-style: none;}
+    .wrap::-webkit-scrollbar {display:none;}
+    .nav {max-width: 500px; left: 50%; transform: translateX(-50%);}
+  </style>
 </head>
 <body>
   <!-- 
@@ -36,187 +42,184 @@
     하단에 버튼이 있을시 .bottomBtn 추가
     헤더 없을시 .headerNone 추가
   -->
-  <div class="wrap headerNone grayBg">
-    <div class="wrap bottomNav main">
+  <div class="wrap main bottomNav grayBg">
 
-      <header class="header header--main">
-        <h1 class="mainLogo">
-          <a href="#none"><span class="blind">춘천시 디지털 신분증</span></a>
-        </h1>
+    <header class="header header--main">
+      <h1 class="mainLogo">
+        <a href="#none"><span class="blind">춘천시 디지털 신분증</span></a>
+      </h1>
 
-        <!-- 새로운 알림이 있을 경우 .new 클래스 추가 -->
-        <a href="#none" class="mainAlram new">
-          <span class="blind">알림보기</span>
-        </a>
-      </header>
+      <!-- 새로운 알림이 있을 경우 .new 클래스 추가 -->
+      <a href="#none" class="mainAlram new">
+        <span class="blind">알림보기</span>
+      </a>
+    </header>
 
-      <div class="contentBox">
-        <div class="digitalIDcard">
-          <ol class="digitalIDcard__list">  
-            <li class="digitalIDcard__item">
-              <button class="digitalIDcard__card skyBlueBgClr">
-                <span class="digitalIDcard__logo">
-                  <img src="../resource/img/icon-logo-01@2x.png" alt="춘천문화재단">
-                </span>
-                <span class="digitalIDcard__text">춘천문화재단 디지털 신분증</span>
-                <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
-                <span class="digitalIDcard__date">
-                  유효기간 <span>2024.8.26</span>
-                </span>
-    
-                <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
-                <span class="digitalIDcard__bookmark none">
-                  <span class="blind">즐겨찾기 선택됨</span>
-                </span>
-              </button>
-            </li>
+    <div class="contentBox">
+      <div class="digitalIDcard">
+        <ol class="digitalIDcard__list">  
+          <li class="digitalIDcard__item">
+            <button class="digitalIDcard__card skyBlueBgClr">
+              <span class="digitalIDcard__logo">
+                <img src="../resource/img/icon-logo-01@2x.png" alt="춘천문화재단">
+              </span>
+              <span class="digitalIDcard__text">춘천문화재단 디지털 신분증</span>
+              <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
+              <span class="digitalIDcard__date">
+                유효기간 <span>2024.8.26</span>
+              </span>
+  
+              <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
+              <span class="digitalIDcard__bookmark none">
+                <span class="blind">즐겨찾기 선택됨</span>
+              </span>
+            </button>
+          </li>
 
-            <li class="digitalIDcard__item">
-              <button class="digitalIDcard__card mintBgClr">
-                <span class="digitalIDcard__logo">
-                  <img src="../resource/img/icon-logo-02@2x.png" alt="춘천시립공공도서관">
-                </span>
-                <span class="digitalIDcard__text">춘천시립공공도서관 디지털 신분증</span>
-                <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
-                <span class="digitalIDcard__date">
-                  유효기간 <span>2024.8.26</span>
-                </span>
-    
-                <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
-                <span class="digitalIDcard__bookmark none">
-                  <span class="blind">즐겨찾기</span>
-                </span>
-              </button>
-            </li>
+          <li class="digitalIDcard__item">
+            <button class="digitalIDcard__card mintBgClr">
+              <span class="digitalIDcard__logo">
+                <img src="../resource/img/icon-logo-02@2x.png" alt="춘천시립공공도서관">
+              </span>
+              <span class="digitalIDcard__text">춘천시립공공도서관 디지털 신분증</span>
+              <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
+              <span class="digitalIDcard__date">
+                유효기간 <span>2024.8.26</span>
+              </span>
+  
+              <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
+              <span class="digitalIDcard__bookmark none">
+                <span class="blind">즐겨찾기</span>
+              </span>
+            </button>
+          </li>
 
-            <li class="digitalIDcard__item">
-              <button class="digitalIDcard__card pupleBgClr">
-                <span class="digitalIDcard__logo">
-                  <img src="../resource/img/icon-logo-01@2x.png" alt="춘천문화재단">
-                </span>
-                <span class="digitalIDcard__text">춘천문화재단 디지털 신분증</span>
-                <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
-                <span class="digitalIDcard__date">
-                  유효기간 <span>2024.8.26</span>
-                </span>
-    
-                <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
-                <span class="digitalIDcard__bookmark none">
-                  <span class="blind">즐겨찾기</span>
-                </span>
-              </button>
-            </li>
-            
-            <!-- 신분증 여러개일 경우 즐겨찾기 된 신분증에 bookmark 클래스 추가 -->
-            <li class="digitalIDcard__item bookmark">
-              <button class="digitalIDcard__card blueBgClr" onclick="openPopup('popup1')">
-                <span class="digitalIDcard__logo">
-                  <img src="../resource/img/icon-chuncheon-white@2x.png" alt="춘천시">
-                </span>
-                <span class="digitalIDcard__text">춘천시 디지털 신분증</span>
-                <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
-                <span class="digitalIDcard__date">
-                  유효기간 <span>2024.8.26</span>
-                </span>
-    
-                <!-- 즐겨찾기 없을 경우 .-none 클래스 추가 -->
-                <span class="digitalIDcard__bookmark">
-                  <span class="blind">즐겨찾기 선택됨</span>
-                </span>
-              </button>
-            </li>
-          </ol>
-        </div>
-
-        <a href="#none" class="digitalIDcard__btn">신분증 관리</a>
-
-        <section class="content inner">
-          <div class="myMenu">
-            <h3 class="myMenu__title">내 관심 메뉴</h3>
-            <ul class="myMenu__list">
-              <li class="myMenu__item">
-                <a href="#none" class="myMenu__link">
-                  <!-- 
-                    투표 참여 menuIcon--01 
-                    정책 참여 menuIcon--02
-                    설문 조사 menuIcon--03
-                    복지 정책 menuIcon--04
-                    소영 Epay menuIcon--05
-                    공유 자전거 menuIcon--06
-                    공유 택시 menuIcon--07
-                    전기 이륜차 menuIcon--08
-                  -->
-                  <span class="menuIcon menuIcon--02"></span>
-                  정책 제안
-                </a>
-              </li>
-              <li class="myMenu__item">
-                <a href="#none" class="myMenu__link">
-                  <span class="menuIcon menuIcon--01"></span>투표 참여</a></li>
-              <li class="myMenu__item">
-                <a href="#none" class="myMenu__link">
-                  <span class="menuIcon menuIcon--03"></span>설문 조사</a></li>
-              <li class="myMenu__item">
-                <a href="#none" class="myMenu__link">
-                  <span class="menuIcon menuIcon--04"></span>복지 정책</a></li>
-            </ul>
-            <button type="button" class="myMenu__edit" onclick="openPopupClass('popup2')">편집</button>
-          </div>
-
+          <li class="digitalIDcard__item">
+            <button class="digitalIDcard__card pupleBgClr">
+              <span class="digitalIDcard__logo">
+                <img src="../resource/img/icon-logo-01@2x.png" alt="춘천문화재단">
+              </span>
+              <span class="digitalIDcard__text">춘천문화재단 디지털 신분증</span>
+              <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
+              <span class="digitalIDcard__date">
+                유효기간 <span>2024.8.26</span>
+              </span>
+  
+              <!-- 즐겨찾기 없을 경우 .none 클래스 추가 -->
+              <span class="digitalIDcard__bookmark none">
+                <span class="blind">즐겨찾기</span>
+              </span>
+            </button>
+          </li>
           
-          <div class="mainBanner">
-            <div class="swiper mainBannerSwiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
-                <div class="swiper-slide"><a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
-                <div class="swiper-slide">
-                  <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
-                <div class="swiper-slide">
-                  <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
-                <div class="swiper-slide">
-                  <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>             
-          
-        </section>
+          <!-- 신분증 여러개일 경우 즐겨찾기 된 신분증에 bookmark 클래스 추가 -->
+          <li class="digitalIDcard__item bookmark">
+            <button class="digitalIDcard__card blueBgClr" onclick="openPopup('popup1')">
+              <span class="digitalIDcard__logo">
+                <img src="../resource/img/icon-chuncheon-white@2x.png" alt="춘천시">
+              </span>
+              <span class="digitalIDcard__text">춘천시 디지털 신분증</span>
+              <strong class="digitalIDcard__name"> 김춘<span>*</span></strong>
+              <span class="digitalIDcard__date">
+                유효기간 <span>2024.8.26</span>
+              </span>
+  
+              <!-- 즐겨찾기 없을 경우 .-none 클래스 추가 -->
+              <span class="digitalIDcard__bookmark">
+                <span class="blind">즐겨찾기 선택됨</span>
+              </span>
+            </button>
+          </li>
+        </ol>
       </div>
 
-      <nav class="nav">
-        <div class="gnb">
-          <ul class="gnbMune">
-            <!-- 현재페이지 .act 추가 -->
-            <li class="gnbMune__item act">
-              <a href="#none" class="gnbMune__link">
-                <i class="gnb01"></i>
-                <span class="txt">홈</span>
-              </a>
-            </li>
-            <li class="gnbMune__item ">
-              <a href="#none" class="gnbMune__link">
-                <i class="gnb02"></i>
-                <span class="txt">서비스 허브</span>
-              </a>
-            </li>
-            <li class="gnbMune__item ">
-              <a href="#none" class="gnbMune__link">
-                <i class="gnb03"></i>
-                <span class="txt">저탄소 활동</span>
-              </a>
-            </li>
-            <li class="gnbMune__item ">
-              <a href="#none" class="gnbMune__link">
-                <i class="gnb04"></i>
-                <span class="txt">마이페이지</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <a href="#none" class="digitalIDcard__btn">신분증 관리</a>
 
+      <section class="content inner">
+        <div class="myMenu">
+          <h3 class="myMenu__title">내 관심 메뉴</h3>
+          <ul class="myMenu__list">
+            <li class="myMenu__item">
+              <a href="#none" class="myMenu__link">
+                <!-- 
+                  투표 참여 menuIcon--01 
+                  정책 참여 menuIcon--02
+                  설문 조사 menuIcon--03
+                  복지 정책 menuIcon--04
+                  소영 Epay menuIcon--05
+                  공유 자전거 menuIcon--06
+                  공유 택시 menuIcon--07
+                  전기 이륜차 menuIcon--08
+                -->
+                <span class="menuIcon menuIcon--02"></span>
+                정책 제안
+              </a>
+            </li>
+            <li class="myMenu__item">
+              <a href="#none" class="myMenu__link">
+                <span class="menuIcon menuIcon--01"></span>투표 참여</a></li>
+            <li class="myMenu__item">
+              <a href="#none" class="myMenu__link">
+                <span class="menuIcon menuIcon--03"></span>설문 조사</a></li>
+            <li class="myMenu__item">
+              <a href="#none" class="myMenu__link">
+                <span class="menuIcon menuIcon--04"></span>복지 정책</a></li>
+          </ul>
+          <button type="button" class="myMenu__edit" onclick="openPopupClass('popup2')">편집</button>
+        </div>
+
+        
+        <div class="mainBanner">
+          <div class="swiper mainBannerSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
+              <div class="swiper-slide"><a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
+              <div class="swiper-slide">
+                <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
+              <div class="swiper-slide">
+                <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
+              <div class="swiper-slide">
+                <a href="#none" class="mainBanner__link"><img src="../resource/img/banner@2x.png" alt=""></a></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>             
+        
+      </section>
     </div>
+
+    <nav class="nav">
+      <div class="gnb">
+        <ul class="gnbMune">
+          <!-- 현재페이지 .act 추가 -->
+          <li class="gnbMune__item act">
+            <a href="#none" class="gnbMune__link">
+              <i class="gnb01"></i>
+              <span class="txt">홈</span>
+            </a>
+          </li>
+          <li class="gnbMune__item ">
+            <a href="#none" class="gnbMune__link">
+              <i class="gnb02"></i>
+              <span class="txt">서비스 허브</span>
+            </a>
+          </li>
+          <li class="gnbMune__item ">
+            <a href="#none" class="gnbMune__link">
+              <i class="gnb03"></i>
+              <span class="txt">저탄소 활동</span>
+            </a>
+          </li>
+          <li class="gnbMune__item ">
+            <a href="#none" class="gnbMune__link">
+              <i class="gnb04"></i>
+              <span class="txt">마이페이지</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- 신분증 팝업 -->
     <div class="popupWrap popupWrap--full headerNone" id="popup1" style="display: none;">

@@ -31,7 +31,7 @@ body {
 .bottomBtn .contentBox {margin-bottom: var(--footer-height); height: calc(100dvh - var(--header-height) - var(--footer-height));}
 .bottomNav .contentBox {margin-bottom: var(--bottomNav-height); height: calc(100dvh - var(--header-height) - var(--bottomNav-height));}
 .main .contentBox ,
-.main.bottomNav .contentBox {margin-top: 0; height: unset}
+.main.bottomNav .contentBox {margin-top: 0; height: unset;}
 .headerNone .contentBox {margin-top: 0; height: 100vh;}
 .headerNone.bottomBtn .contentBox {
     margin-top: 0; 
@@ -636,7 +636,7 @@ summary::-webkit-details-marker {display: none;}
 .digitalIDcard__logo {display: block; width: calc(100% - 38px); height: 35px; text-align: left;}
 .digitalIDcard__logo img {height: 100%;}
 .digitalIDcard__text {display: block; margin-top: 20px; color: var(--btnTxtClr); font-size: 12px; text-align: center;}
-.digitalIDcard__item.bookmark .digitalIDcard__card {box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);}
+.digitalIDcard__item.bookmark .digitalIDcard__card {box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); cursor: pointer;}
 .digitalIDcard__name {display: block; margin-top: 8px; color: var(--btnTxtClr); font-size: 36px; font-weight: 700; text-align: center; letter-spacing: 9px; line-height: 44px;}
 .digitalIDcard__name > span {position: relative; top: 5px;}
 .digitalIDcard__date {display: flex; justify-content: center; column-gap: 8px; margin-top: 40px; color: var(--btnTxtClr); text-align: center; font-size: 0.75rem;}
@@ -653,7 +653,7 @@ summary::-webkit-details-marker {display: none;}
 .myMenu__item {width: calc(33% - 32px); font-size: 14px; text-align: center;}
 .myMenu__link {display: flex; flex-direction: column;}
 .myMenu__item .menuIcon {width: 64px; height: 64px; margin:0 auto 10px; border-radius: 100%; border: 1px solid var(--grayborClr); background-color: #fafafc;}
-.myMenu__edit {position: absolute; top:27px; right: 20px; padding-left: 18px; font-size: 12px; color: var(--txtClr);}
+.myMenu__edit {position: absolute; top:27px; right: 20px; padding-left: 18px; font-size: 12px; color: var(--txtClr);cursor: pointer;}
 .myMenu__edit::before {content: ''; position: absolute; left: 0; top: -1px; width: 16px; height: 16px; background: url(../img/icon-setting-s@2x.png) no-repeat 0 0 / contain;}
 .myMenu__add {display: flex; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 15px;}
 .myMenu__btn {position: relative; padding: 14px 0 14px 48px; font-size: 14px; color: var(--txtClr);}
